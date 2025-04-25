@@ -8,43 +8,27 @@
             @livewire('chat.send-message')
         </div>
     </div>
-
-
-
     <script>
-
-       
-
         window.addEventListener('chatSelected', event => {
             if (window.innerWidth < 768) {
                 $('.chat_list_container').hide();
                 $('.chat_box_container').show();
             }
-
             const observer = new MutationObserver((mutations) => {
-                const chatboxBody = $('.chatbox_body')[0];
-                const msgbox = $('.msg_body')[0];
+                const chatboxBody = $('')[0];
+                const msgbox = $('')[0];
                 if (msgbox) {
+                    console.log(chatboxBody.scrollHeight);
+                    console.log(chatboxBody.scrollTop);
                     chatboxBody.scrollTop = chatboxBody.scrollHeight;
                     observer.disconnect();
-
-
                 }
             });
-
-
-
             observer.observe(document.body, {
                 childList: true,
                 subtree: true
             });
-
-
         });
-
-
-
-
         $(window).resize(function() {
             if (window.innerWidth > 786) {
                 $('.chat_list_container').show();
@@ -56,8 +40,6 @@
                 $('.chat_list_container').show();
                 $('.chat_box_container').hide();
             }
-
-
         });
     </script>
 

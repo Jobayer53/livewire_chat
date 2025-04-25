@@ -17,6 +17,8 @@ class Chatbox extends Component
     public $messageCount;
     public $messages;
     public $paginateVar = 10;
+    public $body;
+    // public $body;
 
     // public $name;
     // protected $listeners = ['loadConversation', 'pushMessage', 'loadMoreMessages'];
@@ -31,6 +33,7 @@ class Chatbox extends Component
             'pushMessage',
             'broadcastMessageRead',
             'resetChat',
+            'resetBodyData',
         ];
     }
 
@@ -103,7 +106,9 @@ class Chatbox extends Component
         // $this->name = $this->receiverInstance->name;
     }
 
-
+public function resetBodyData(){
+    $this->body = null;
+}
 
 
 

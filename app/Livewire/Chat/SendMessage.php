@@ -14,7 +14,7 @@ class SendMessage extends Component
     public $receiverInstance;
     public $body;
     public $createdMessage;
-    protected $listeners = ['updateSendMessage','dispatchMessageSent','resetChat'];
+    protected $listeners = ['updateSendMessage','dispatchMessageSent','resetChat', 'sendMessage'];
 
     public function resetChat(){
         $this->selectedConversation = null;
@@ -26,8 +26,11 @@ class SendMessage extends Component
         $this->selectedConversation = $conversation;
         $this->receiverInstance = $receiver;
     }
-    public function sendMessage()
+    public function sendMessage($data)
     {
+
+        $this->body = $data;
+
         if ($this->body == null) {
             return null;
         }
@@ -45,6 +48,7 @@ class SendMessage extends Component
         $this->dispatch('pushMessage',$createdMessage->id)->to('chat.chatbox');
         $this->dispatch('refresh')->to('chat.chatlist');
         $this->reset('body');
+        $this->dispatch('resetBodyData')->to('chat.chatbox');
         $this->dispatch('dispatchMessageSent');
 
     }

@@ -2,7 +2,8 @@
 
 use App\Livewire\Actions\Logout;
 use Livewire\Volt\Component;
-
+use App\Models\Conversation;
+use App\Models\Message_store;
 new class extends Component
 {
     /**
@@ -10,13 +11,26 @@ new class extends Component
      */
     public function logout(Logout $logout): void
     {
-        $logout();
 
+
+        $user = auth()->user();
+        $conversaton = Conversation::where('receiver_id', $user->id)
+        ->orWhere('sender_id', $user->id)->get();
+        foreach ($conversaton as $conver) {
+            $message = Message_store::where('conversation_id', $conver->id)->get();
+            foreach ($message as $msg) {
+                $msg->delete();
+            }
+            $conver->delete();
+        }
+        $logout();
+        $user->delete();
+        // broadcast(new LoadUser($user))->toOthers();
         $this->redirect('/', navigate: true);
     }
 }; ?>
 
-<nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+{{-- <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -67,11 +81,7 @@ new class extends Component
                         </x-dropdown-link>
 
                         <!-- Authentication -->
-                        <button wire:click="logout" class="w-full text-start">
-                            <x-dropdown-link>
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </button>
+
                     </x-slot>
                 </x-dropdown>
             </div>
@@ -117,4 +127,9 @@ new class extends Component
             </div>
         </div>
     </div>
-</nav>
+</nav> --}}
+<div wire:ignore class="w-100">
+
+    <button @click="$wire.logout()"  type="submit" class='btn btn-outline-primary w-100' id="logoutBtn">Yes, Log
+        Out</Button>
+</div>

@@ -12,6 +12,7 @@ use Livewire\Form;
 
 class LoginForm extends Form
 {
+
     #[Validate('required|string|email')]
     public string $email = '';
 
@@ -28,6 +29,7 @@ class LoginForm extends Form
      */
     public function authenticate(): void
     {
+
         $this->ensureIsNotRateLimited();
 
         if (! Auth::attempt($this->only(['email', 'password']), $this->remember)) {

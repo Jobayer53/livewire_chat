@@ -10,3 +10,6 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 Broadcast::channel('chat.{receiver}', function (User $user, $receiver) {
     return (int) $user->id === (int) $receiver;
 });
+Broadcast::channel('users', function ($user) {
+    return true; // Allow all users (authenticated or not) to listen
+});

@@ -17,19 +17,29 @@ class Chatlist extends Component
     public $singleConvo, $singleConversation = null, $singleReceiver;
 
 
-    protected $listeners = ['chatUserSelected', 'refresh','resetChat','userSelected'];
+    protected $listeners = ['chatUserSelected', 'refresh','resetChat','userSelected','test'];
 
 
     public function resetChat(){
         $this->selectedConversation = null;
         $this->receiverInstance = null;
+        $this->singleConversation = null;
     }
      public function refresh(){
         $this->singleConversation = null;
         $this->mount();
     }
+    // public function test($conversation_id, $receiver_id){
+    //     // dd('asdf');
+    //     // dd($conversation_id, $receiver_id);
+    //     $this->dispatch('userSelected',
+    //         conversation: $conversation_id,
+    //         receiver_id: $receiver_id
+    //     )->to('chat.chatlist');
+    // }
     // protected $listeners = ['demoTest'];
     public function userSelected($conversation, $receiver_id){
+        // dd('here');
         $data = Conversation::find($conversation);
         if(!$data->message->first()){
 
@@ -70,6 +80,7 @@ class Chatlist extends Component
             return $this->receiverInstance->$request;
         }
     }
+  
     public function mount(){
         $this->auth_id = auth()->id();
         $this->conversations = Conversation::where('receiver_id', $this->auth_id)
@@ -80,6 +91,7 @@ class Chatlist extends Component
 
 
     }
+
     public function render()
     {
         $users = User::
