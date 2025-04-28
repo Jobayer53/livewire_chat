@@ -12,8 +12,9 @@ use App\Models\Message_store;
 class CreateChat extends Component
 {
 
-    public $users;
+    public $users, $auth;
     public $message = 'hello';
+
     // protected $listeners = ['echo:users,LoadUser' => 'refreshUserList',];
 
     public function getListeners()
@@ -25,58 +26,47 @@ class CreateChat extends Component
     }
     public function refreshUserList($playload)
     {
-        $this->dispatch('usersUpdated');
+        $this->mount();
+        $this->dispatch('refresh')->to('chat.chatlist');
     }
 
 
     public function checkconversation($receiverId)
     {
+        $conversation = Conversation::where(function($query) use ($receiverId) {
+            $query->where('receiver_id', $this->auth->id)
+            ->where('sender_id', $receiverId);
+        })
+        ->orWhere(function($query) use ($receiverId) {
+            $query->where('receiver_id', $receiverId)
+            ->where('sender_id', $this->auth->id);
+        })
+        ->first();
 
-        $checkConversation = Conversation::where('receiver_id', auth()->user()->id)
-            ->where('sender_id', $receiverId)
-            ->orWhere('receiver_id', $receiverId)
-            ->where('sender_id', auth()->user()->id)
-            ->get();
-        $createConvo = null;
-        if ($checkConversation->isEmpty()) {
-
-            // dd('No conversation found');
-            $createConvo = new Conversation();
-            $createConvo->sender_id = auth()->user()->id;
-            $createConvo->receiver_id = $receiverId;
-            $createConvo->last_time_message = now();
-            $createConvo->save();
-            //message
-            // $createMessage = new Message_store();
-            // $createMessage->conversation_id = $createConvo->id;
-            // $createMessage->sender_id = auth()->user()->id;
-            // $createMessage->receiver_id = $receiverId;
-            // $createMessage->body = $this->message;
-            // $createMessage->save();
-
-            // $createConvo->last_time_message = $createMessage->created_at;
-            // $createConvo->save();
-
-
+        if (!$conversation) {
+            $conversation = new Conversation();
+            $conversation->sender_id = $this->auth->id;
+            $conversation->receiver_id = $receiverId;
+            $conversation->last_time_message = now();
+            $conversation->save();
         }
 
-        // dd('checkConversation', $checkConversation, 'createConvo', $createConvo);
-        //    return $this->redirect(route('chatWithUser', [
-        //         'conversationId' => $checkConversation->isEmpty()?$createConvo->id :$checkConversation->first()->id ,
-        //         'receiverId' => $receiverId
-        //     ]), navigate: true );
-        //    return $this->redirect(route('test',[  'conversation_id' => $checkConversation->isEmpty()?$createConvo->id :$checkConversation->first()->id ,    'receiver_id' => $receiverId ]), navigate: true );
-        // $this->dispatch('test',conversation_id: $checkConversation->isEmpty()?$createConvo->id :$checkConversation->first()->id, receiver_id: $receiverId)->to('chat.chatlist');
+
+
+
         $this->dispatch(
-            'userSelected',
-            conversation: $checkConversation->isEmpty() ? $createConvo->id : $checkConversation->first()->id,
+            'chatUserSelected',
+            conversation_id: $conversation->id,
             receiver_id: $receiverId
         )->to('chat.chatlist');
     }
 
+
     public function mount(){
-        $this->users = User::where('id', '!=', auth()->id())
-        ->orderByRaw("country = ? DESC", [auth()->user()->country])
+        $this->auth = auth()->user();
+        $this->users = User::where('id', '!=', $this->auth->id)
+        ->where('is_online',true)
+        ->orderByRaw("country = ? DESC", [$this->auth->country])
         ->orderBy('name')
         ->get();
     }
@@ -87,8 +77,6 @@ class CreateChat extends Component
     {
 
         return view('livewire.chat.create-chat')
-            ->layout('layouts.app', [
-                'title' => 'Users'
-            ]);
+            ->layout('layouts.app',);
     }
 }

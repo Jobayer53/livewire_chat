@@ -4,28 +4,40 @@ use App\Livewire\Actions\Logout;
 use Livewire\Volt\Component;
 use App\Models\Conversation;
 use App\Models\Message_store;
-new class extends Component
-{
+use App\Events\loadUser;
+use App\Models\User;
+new class extends Component {
     /**
      * Log the current user out of the application.
      */
     public function logout(Logout $logout): void
     {
-
-
         $user = auth()->user();
-        $conversaton = Conversation::where('receiver_id', $user->id)
-        ->orWhere('sender_id', $user->id)->get();
-        foreach ($conversaton as $conver) {
-            $message = Message_store::where('conversation_id', $conver->id)->get();
-            foreach ($message as $msg) {
-                $msg->delete();
+        $user->is_online = false;
+        $user->save();
+        $conversations = Conversation::where('receiver_id', $user->id)->orWhere('sender_id', $user->id)->get();
+        // foreach ($conversaton as $conver) {
+        //     $message = Message_store::where('conversation_id', $conver->id)->get();
+        //     foreach ($message as $msg) {
+        //         $msg->delete();
+        //     }
+        //     $conver->delete();
+        // }
+        foreach ($conversations as $conversation) {
+            $senderOnline = User::where('id', $conversation->sender_id)->value('is_online');
+            $receiverOnline = User::where('id', $conversation->receiver_id)->value('is_online');
+
+            if (!$senderOnline && !$receiverOnline) {
+                // both offline, delete conversation and messages
+                Message_store::where('conversation_id', $conversation->id)->delete();
+                $conversation->delete();
             }
-            $conver->delete();
         }
+
+        broadcast(new LoadUser($user))->toOthers();
         $logout();
-        $user->delete();
-        // broadcast(new LoadUser($user))->toOthers();
+
+        // $user->delete();
         $this->redirect('/', navigate: true);
     }
 }; ?>
@@ -130,6 +142,6 @@ new class extends Component
 </nav> --}}
 <div wire:ignore class="w-100">
 
-    <button @click="$wire.logout()"  type="submit" class='btn btn-outline-primary w-100' id="logoutBtn">Yes, Log
+    <button @click="$wire.logout()" type="submit" class='btn btn-outline-primary w-100' id="logoutBtn">Yes, Log
         Out</Button>
 </div>

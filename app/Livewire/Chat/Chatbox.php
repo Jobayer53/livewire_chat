@@ -14,10 +14,11 @@ class Chatbox extends Component
 {
     public $selectedConversation;
     public $receiverInstance;
-    public $messageCount;
+    public $messageCount ;
     public $messages;
     public $paginateVar = 10;
     public $body;
+    public $auth;
     // public $body;
 
     // public $name;
@@ -25,7 +26,7 @@ class Chatbox extends Component
 
     public function getListeners()
     {
-        $auth_id = auth()->user()->id;
+        $auth_id = $this->auth->id;
         return [
             "echo-private:chat.{$auth_id},.MessageSent" => 'broadcastedMessageReceived',
             "echo-private:chat.{$auth_id},.MessageRead" => 'broadcastedMessageRead',
@@ -84,37 +85,51 @@ class Chatbox extends Component
 
     public function pushMessage($message_id)
     {
+
         $createdMessage = Message_store::find($message_id);
+
         $this->messages->push($createdMessage);
         $this->dispatch('rowChatToBottom');
     }
+
     public function loadConversation(Conversation $conversation, User $receiver)
     {
+
         $this->selectedConversation = $conversation;
         $this->receiverInstance = $receiver;
-        $this->messageCount = Message_store::where('conversation_id', $this->selectedConversation->id)
-            ->count();
-        $this->messages = Message_store::where('conversation_id', $this->selectedConversation->id)
+        $query = Message_store::where('conversation_id', $this->selectedConversation->id);
+            $this->messageCount = $query->count();
+            $this->messages = $query->get();
+        if($conversation->message->first()){
 
-            ->get();
-        $this->dispatch('chatSelected');
-        Message_store::where('conversation_id', $this->selectedConversation->id)
-            ->where('receiver_id', auth()->user()->id)
-            ->where('read', 0)
-            ->update(['read' => 1]);
-        $this->dispatch('broadcastMessageRead')->to('chat.chatbox');
+
+
+            $this->dispatch('chatSelected');
+            Message_store::where('conversation_id', $this->selectedConversation->id)
+                ->where('receiver_id', $this->auth->id)
+                ->where('read', 0)
+                ->update(['read' => 1]);
+            $this->dispatch('refresh')->to('chat.chatlist');
+            $this->dispatch('broadcastMessageRead')->to('chat.chatbox');
+        }
+
+
+
+
         // $this->name = $this->receiverInstance->name;
     }
 
-public function resetBodyData(){
-    $this->body = null;
-}
+    public function resetBodyData(){
+        $this->body = null;
+    }
 
 
-
+    public function mount(){
+        $this->auth = auth()->user();
+    }
 
     public function render()
     {
-        return view('livewire.chat.chatbox');
+        return view('livewire.chat.chatbox')->layout('layouts.app');
     }
 }

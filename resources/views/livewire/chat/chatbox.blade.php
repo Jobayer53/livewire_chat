@@ -1,56 +1,5 @@
 <div>
 
-    {{--
-    @if ($selectedConversation)
-        <div class="chatbox_header">
-            <div class="return">
-                <i class="bi bi-arrow-left"></i>
-            </div>
-            <div class="img_container">
-                <img src="https://ui-avatars.com/api/?name={{ $receiverInstance->name }}" alt="">
-            </div>
-            <div class="name">
-                {{ $receiverInstance->name }}
-            </div>
-            <div class="info">
-                <div class="info-item">
-
-                </div>
-            </div>
-        </div>
-    @endif
-    <div class="chatbox_body" id="chatboxBody">
-        @if ($selectedConversation)
-            @foreach ($messages as $message)
-                <div wire:key="{{ $message->id }}" data-message-id="{{ $message->id }}"
-                    class="msg_body {{ auth()->id() == $message->sender_id ? 'msg_body_me' : 'msg_body_receiver' }} " style="max-width:80%; width: 80%; max-width:max-content;">
-                    {{ $message->body }}
-                    <div class="msg_body_footer">
-                        <div class="date">
-                            {{ $message->created_at->format('m: i a') }}
-                        </div>
-                        <div class="read">
-                            @php
-                                if($message->user->id === auth()->id()){
-                                    if($message->read  == 0){
-                                        echo '<i class="bi bi-check2 status_tick"></i>';
-                                    }else{
-                                        echo '<i class="bi bi-check2-all text-primary "></i>';
-                                    }
-                                }
-                            @endphp
-
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        @else
-            <div class="no_conversation p-5 m-auto">
-                No conversation found
-            </div>
-        @endif
-    </div> --}}
-
 
 
 
@@ -60,8 +9,8 @@
         <div class="chat-wrapper show" id="chat-wrapper">
             <nav class="navbar navbar-expand p-sm-3 z-3">
                 <div class="d-flex align-items-center gap-2">
-                    <button class="navbar-toggler text-primary shadow-none border-0 p-0 fs-2" type="button"
-                        onclick="showClass()">
+                    <button class="navbar-toggler text-primary shadow-none border-0 p-0 fs-2 return-btn" type="button"
+                        >
                         <i class="bi bi-arrow-left-short align-middle"></i>
                     </button>
                     <img id="chatUserImg"
@@ -138,11 +87,12 @@
                             <span>Country :</span>
                             @php
                                 $code = $receiverInstance->country;
-                                $response = Http::get("https://restcountries.com/v3.1/alpha/{$code}");
+                                // $response = Http::get("https://restcountries.com/v3.1/alpha/{$code}");
 
-                                $cntName = $response->successful()
-                                    ? $response->json()[0]['name']['common']
-                                    : strtoupper($code); // fallback to code if failed
+                                $cntName ='hh';
+                                // $response->successful()
+                                //     ? $response->json()[0]['name']['common']
+                                //     : strtoupper($code); // fallback to code if failed
                             @endphp
                             <span class="fs-6 text-body fw-medium">{{$cntName}}
                                 <img
@@ -163,131 +113,48 @@
             <div class="chat-body p-3 position-relative " id="chatScrollContainer">
                 <div class="simplebar-wrapper" style="margin: -16px;overflow:auto !important;">
                     <div class="messages position-relative" id="messagesContainer">
-                        @foreach ($messages as $message)
-                            @if (auth()->id() == $message->sender_id)
-                                <div class="message-item outgoing-message mt-2 mb-2">
-                                    <div class="d-flex gap-2 align-items-center flex-wrap">
-                                        <div>
-                                            <div class="message-content  me-2">{{ $message->body }}</div>
-                                        </div>
-                                    </div>
-                                    <div class="time text-end font-12 mt-1">
-                                        <span>{{ $message->created_at->format('m: i a') }}</span>
-                                        @php
-                                            if ($message->user->id === auth()->id()) {
-                                                if ($message->read == 0) {
-                                                    echo '<i class="bi bi-check2-all  status_tick"></i>';
-                                                } else {
-                                                    echo '<i class="bi bi-check2-all text-primary "></i>';
-                                                }
-                                            }
-                                        @endphp
-                                    </div>
-                                </div>
-                            @else
-                                <div class="message-item incoming-message mt-2 mb-2">
-                                    <div class="d-flex gap-2 align-items-center flex-wrap">
-                                        <div>
-                                            <div class="message-content ms-2"> {{ $message->body }}</div>
-                                        </div>
+                      @if($messages)
+                      @foreach ($messages as $message)
+                      @if ($auth->id == $message->sender_id)
+                          <div class="message-item outgoing-message mt-2 mb-2">
+                              <div class="d-flex gap-2 align-items-center flex-wrap">
+                                  <div>
+                                      <div class="message-content  me-2">{{ $message->body }}</div>
+                                  </div>
+                              </div>
+                              <div class="time text-end font-12 mt-1">
+                                  <span>{{ $message->created_at->format('m: i a') }}</span>
+                                  @php
+                                      if ($message->user->id === $auth->id) {
+                                          if ($message->read == 0) {
+                                              echo '<i class="bi bi-check2-all  status_tick"></i>';
+                                          } else {
+                                              echo '<i class="bi bi-check2-all text-primary "></i>';
+                                          }
+                                      }
+                                  @endphp
+                              </div>
+                          </div>
+                      @else
+                          <div class="message-item incoming-message mt-2 mb-2">
+                              <div class="d-flex gap-2 align-items-center flex-wrap">
+                                  <div>
+                                      <div class="message-content ms-2"> {{ $message->body }}</div>
+                                  </div>
 
-                                    </div>
-                                    <div class="time text-start font-12 mt-1 ms-2">
-                                        <span> {{ $message->created_at->format('m: i a') }} </span>
+                              </div>
+                              <div class="time text-start font-12 mt-1 ms-2">
+                                  <span> {{ $message->created_at->format('m: i a') }} </span>
 
-                                    </div>
-                                </div>
-                            @endif
-                        @endforeach
+                              </div>
+                          </div>
+                      @endif
+                  @endforeach
+                      @endif
                     </div>
                 </div>
 
 
-                {{-- <div class="simplebar-wrapper" style="margin: -16px;">
-
-
-                    <div class="simplebar-mask">
-                        <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
-                            <div class="simplebar-content-wrapper" style="height: 100%;">
-                                <div class="simplebar-content" style="padding: 16px;">
-
-
-
-
-                                    <div class="messages position-relative">
-                                        @foreach ($messages as $message)
-                                            @if (auth()->id() == $message->sender_id)
-                                                <div class="message-item outgoing-message">
-                                                    <div class="d-flex gap-2 align-items-center flex-wrap">
-                                                        <div>
-                                                            <div class="message-content">{{ $message->body }}</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="time text-end font-12 mt-1">
-                                                        <span>{{ $message->created_at->format('m: i a') }}</span>
-                                                        @php
-                                                            if ($message->user->id === auth()->id()) {
-                                                                if ($message->read == 0) {
-                                                                    echo '<i class="bi bi-check2 status_tick"></i>';
-                                                                } else {
-                                                                    echo '<i class="bi bi-check2-all text-primary "></i>';
-                                                                }
-                                                            }
-                                                        @endphp
-                                                    </div>
-                                                </div>
-                                            @else
-                                                <div class="message-item incoming-message">
-                                                    <div class="d-flex gap-2 align-items-center flex-wrap">
-                                                        <div>
-                                                            <div class="message-content"> {{ $message->body }}</div>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="time text-start font-12 mt-1">
-                                                        <span> {{ $message->created_at->format('m: i a') }} </span>
-
-                                                    </div>
-                                                </div>
-                                            @endif
-                                        @endforeach
-                                    </div>
-
-                                    <!-- Message dropdown Reply item content -->
-                                    <div class="card border replyCard mt-3"
-                                        style="display: none;">
-                                        <div class="card-body py-3">
-                                            <div class="alert rounded-1 alert-success bg-primary-subtle border-start border-primary alert-dismissible fade show p-3 mb-0"
-                                                role="alert">
-                                                <div class="mb-0 d-flex align-items-start">
-                                                    <div class="flex-grow-1">
-                                                        <h5 class="mb-2">You</h5>
-                                                        <p class="mb-0 reply" ></p>
-                                                    </div>
-                                                    <div class="flex-shrink-0">
-                                                        <button type="button"
-                                                            class="btn btn-sm  mt-n2 me-n3 pt-0 fs-4"
-                                                           >
-                                                            <i class="bi bi-x"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="simplebar-placeholder" style="width: 568px; height: 2265px;"></div>
-                </div> --}}
-                {{-- <div class="simplebar-track simplebar-horizontal" style="visibility: visible;">
-                    <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
-                </div>
-                <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
-                    <div class="simplebar-scrollbar"
-                        style="height: 130px; display: block; transform: translate3d(0px, 0px, 0px);"></div>
-                </div> --}}
             </div>
             <!-- Footer -->
             <div class="bg-body footer p-3 border-top">
@@ -331,6 +198,10 @@
             // setTimeout(() => observer.disconnect(), 2000);
         });
         $(document).on('click', '.return', function() {
+
+            Livewire.dispatch('resetChat');
+        });
+        $(document).on('click', '.return-btn', function() {
 
             Livewire.dispatch('resetChat');
         });

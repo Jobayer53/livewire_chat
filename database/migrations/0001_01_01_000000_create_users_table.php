@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('age');
             $table->string('country');
             $table->string('city')->nullable();
+            $table->boolean('is_online')->default(true);
             $table->rememberToken();
             $table->timestamps();
         });

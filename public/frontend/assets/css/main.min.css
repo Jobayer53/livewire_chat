@@ -14215,6 +14215,9 @@ input[type=checkbox] {
     visibility: visible;
     transform: translateX(0);
   }
+  .return{
+    display: none;
+  }
 }
 [data-bs-theme=dark] audio::-webkit-media-controls-panel {
   background-color: var(--bs-dark);

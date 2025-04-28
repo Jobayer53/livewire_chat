@@ -37,6 +37,7 @@ class User extends Authenticatable
         'age',
         'country',
         'city',
+        'is_online'
     ];
 
     /**
