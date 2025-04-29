@@ -13909,6 +13909,9 @@ input[type=checkbox] {
     display: block;
     margin-right: 0 !important;
   }
+  .spinner-grow{
+    margin-left: 4px !important;
+  }
 }
 @media (max-width: 991.98px) {
   .sidebar {

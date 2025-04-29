@@ -5,7 +5,7 @@
 
     <div class="contact-lists p-4 pt-0 mainbutton" data-simplebar
         style="overflow-y: auto; scroll-behavior: smooth; scrollbar-width: none;">
-        
+
         <ul class="list-unstyled chat-list chat-all-groups" id="userList">
             @forelse($users as $user)
                 <li class="active py-2 border-bottom border-dashed users" id="contact-1"
@@ -48,16 +48,19 @@
         </ul>
 
     </div>
-    <script>
-        $('.users').on('click', function() {
-            let chat = $('.chat-nav');
-            let user = $('.user-nav');
-            let chatTab = $('.chat-tab');
-            let userTab = $('.user-tab');
-            user.removeClass('active').attr('aria-selected', false).attr('tabindex', '-1');
-            chat.attr('aria-selected', true).removeAttr('tabindex').addClass('active');
-            userTab.removeClass('active show');
-            chatTab.addClass('active show');
-        });
-    </script>
+    @section('script')
+        <script>
+            $('.users').on('click', function() {
+                let chat = $('.chat-nav');
+                let user = $('.user-nav');
+                let chatTab = $('.chat-tab');
+                let userTab = $('.user-tab');
+                user.removeClass('active').attr('aria-selected', false).attr('tabindex', '-1');
+                chat.attr('aria-selected', true).removeAttr('tabindex').addClass('active');
+                userTab.removeClass('active show');
+                chatTab.addClass('active show');
+            });
+        </script>
+    @endsection
+
 </div>

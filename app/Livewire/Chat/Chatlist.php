@@ -49,17 +49,23 @@ class Chatlist extends Component
     }
 
 
-    public function getChatUserInstance(Conversation $conversation, $request){
+    // public function getChatUserInstance(Conversation $conversation, $request){
 
-        if($conversation->sender_id == $this->auth->id){
-            $this->receiverInstance = User::firstWhere('id', $conversation->receiver_id);
-        }else{
-            $this->receiverInstance = User::firstWhere('id', $conversation->sender_id);
-        }
-        if(isset($request)){
-            return $this->receiverInstance->$request;
-        }
-    }
+    //     if($conversation->sender_id == $this->auth->id){
+    //         $this->receiverInstance = User::firstWhere('id', $conversation->receiver_id);
+    //     }else{
+    //         $this->receiverInstance = User::firstWhere('id', $conversation->sender_id);
+    //     }
+    //     if(isset($request)){
+    //         return $this->receiverInstance->$request;
+    //     }
+    // }
+    public function getChatUserInstance(Conversation $conversation)
+{
+    return $conversation->sender_id == $this->auth->id
+        ? User::find($conversation->receiver_id)
+        : User::find($conversation->sender_id);
+}
 
     public function mount(){
         $this->auth = auth()->user();
@@ -71,11 +77,18 @@ class Chatlist extends Component
         ->orderBy('last_time_message', 'desc')
         ->get();
 
+        $this->prepareConversations();
 
 
-      
 
     }
+    public $chatReceivers = [];
+    public function prepareConversations()
+{
+    foreach ($this->conversations as $conversation) {
+        $this->chatReceivers[$conversation->id] = $this->getChatUserInstance($conversation);
+    }
+}
 
     public function render()
     {

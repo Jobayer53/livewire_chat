@@ -19,6 +19,7 @@ class Chatbox extends Component
     public $paginateVar = 10;
     public $body;
     public $auth;
+
     // public $body;
 
     // public $name;
@@ -63,6 +64,11 @@ class Chatbox extends Component
                 $this->dispatch('broadcastMessageRead')->to('chat.chatbox');
             }
         }
+       if($broadcastMessage->read == 0){
+         $this->dispatch('newMessage', true);
+       }else{
+        $this->dispatch('newMessage', false);
+       }
     }
     public function broadcastMessageRead()
     {
@@ -109,6 +115,7 @@ class Chatbox extends Component
                 ->where('receiver_id', $this->auth->id)
                 ->where('read', 0)
                 ->update(['read' => 1]);
+            $this->dispatch('newMessage', false);
             $this->dispatch('refresh')->to('chat.chatlist');
             $this->dispatch('broadcastMessageRead')->to('chat.chatbox');
         }
