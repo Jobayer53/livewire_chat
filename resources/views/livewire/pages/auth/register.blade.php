@@ -60,7 +60,7 @@ x-data="{ darkTheme: false }" x-init="
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="SRBThemes" name="author">
-    <meta content="Chatizo - Chat App Template" name="description">
+
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{asset('frontend/assets/images/favicon.ico')}}">
     <!--------------Bootstrap Icon----------------->
@@ -138,15 +138,15 @@ x-data="{ darkTheme: false }" x-init="
         })
     " dir="ltr"> --}}
 
-    <!-- Mirrored from chatizo.netlify.app/html/signup by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 16 Apr 2025 06:32:48 GMT -->
+
     {{-- <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack --> --}}
     {{-- <head>
 
         <meta charset="utf-8">
-        <title>Sign Up | Chatizo Chat App Template</title>
+        <title>Sign Up </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="SRBThemes" name="author">
-        <meta content="Chatizo - Chat App Template" name="description">
+
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!--------------Bootstrap Icon----------------->
@@ -445,6 +445,5 @@ x-data="{ darkTheme: false }" x-init="
     </body>
 
 
-    <!-- Mirrored from chatizo.netlify.app/html/signup by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 16 Apr 2025 06:32:53 GMT -->
     {{-- </html> --}}
 </div>

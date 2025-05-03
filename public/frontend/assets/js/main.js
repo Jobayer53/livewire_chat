@@ -1,8 +1,4 @@
-/************************************
- * Template Name:  chatizo
- * Version:  1.0.0
- * Author: SRBThemes
- ***********************************/
+
 
 "use strict";
 
@@ -13,7 +9,7 @@ const tooltipTriggerList = document.querySelectorAll(
 
 const tooltipList = [...tooltipTriggerList].map(
   (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
-);  
+);
 
 // Rtl layout
 var dataRTL = document.getElementById("switchRtl");
@@ -132,7 +128,7 @@ function initFunc() {
 initFunc();
 
 const ENV = {
-    APP_NAME: 'CHATIZO',
+    APP_NAME: 'DISTINGDISTING',
     AUTHOR: 'SRBThemes'
 };
 

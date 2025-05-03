@@ -168,7 +168,7 @@ $watch('darkTheme', value => {
                         <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                             <div class="toast-header">
                                 {{-- <img src="assets/images/logo.png" class="rounded me-2" alt="logo" height="25"> --}}
-                                <strong class="me-auto">CHATIZO</strong>
+                                <strong class="me-auto">DISTING DISTING</strong>
                                 <button type="button" class="btn-close" data-bs-dismiss="toast"
                                     aria-label="Close"></button>
                             </div>

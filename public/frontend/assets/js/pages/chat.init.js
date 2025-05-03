@@ -489,13 +489,13 @@ function settingProfileForm() {
       editMode: false,
       formData: {
           name: 'Harris Welsh',
-          email: 'chatizo_100@gmail.com',
+          email: 'DEMO@gmail.com',
           contact: '+251 2548 639',
           location: 'Germany / Berlin'
       },
       originalData: {
         name: 'Harris Welsh',
-        email: 'chatizo_100@gmail.com',
+        email: 'DEMO@gmail.com',
         contact: '+251 2548 639',
         location: 'Germany / Berlin'
       },
