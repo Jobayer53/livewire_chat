@@ -56,7 +56,34 @@ $watch('darkTheme', value => {
     {{-- <link rel="stylesheet" href="{{ asset('css/chat.css') }}"> --}}
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pusher-js@8.4.0/dist/web/pusher.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/laravel-echo@1.15.3/dist/echo.iife.js"></script>
+    <script >
+        window.axios = axios;
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+// Initialize Echo with Pusher
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: '65e78f6836204dacd503',
+    cluster: 'eu',
+    forceTLS: true,
+    encrypted: true,
+    authEndpoint: '/broadcasting/auth',
+    auth: {
+        headers: {
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content,
+        },
+    },
+    disableStats: true
+});
+
+// Debugging
+window.Echo.connector.pusher.connection.bind('connected', () => {
+    console.log('Pusher connected successfully!');
+});
+    </script>
     @livewireStyles()
 
 
