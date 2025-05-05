@@ -6,7 +6,7 @@
 
     {{-- new code here --}}
     @if ($selectedConversation)
-        <div class="chat-wrapper show" id="chat-wrapper">
+        <div class="chat-wrapper animate-chat-wrapper " id="chat-wrapper">
             <nav class="navbar navbar-expand p-sm-3 z-3">
                 <div class="d-flex align-items-center gap-2">
                     <button class="navbar-toggler text-primary shadow-none border-0 p-0 fs-2 return-btn" type="button">
@@ -31,16 +31,7 @@
                 </div>
                 <div class="ms-auto">
                     <ul class="navbar-nav gap-2">
-                        {{-- <li>
-                            <a href="javascript:void(0);" class="btn btn-small fs-5 btn-success p-3" aria-current="page"
-                                data-bs-toggle="modal" data-bs-target="#audioModal"><i
-                                    class="font-14 bi bi-telephone-fill"></i></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" class="btn btn-small fs-5 btn-warning p-3" aria-current="page"
-                                data-bs-toggle="modal" data-bs-target="#videoModal"><i
-                                    class="font-14 bi bi-camera-video-fill"></i></a>
-                        </li> --}}
+
                         <li class="return" style="cursor: pointer;font-size: 25px;">
                             <div>
                                 <i class="bi bi-x " style=""></i>
@@ -172,45 +163,44 @@
             </div>
         </div>
     @endif
-    @section('script')
-        <script>
-            window.addEventListener('rowChatToBottom', () => {
-                const chatbox = document.querySelector('.simplebar-wrapper');
-                if (!chatbox) return console.error('Chatbox not found');
+    <script>
+        window.addEventListener('rowChatToBottom', () => {
+            const chatbox = document.querySelector('.simplebar-wrapper');
+            if (!chatbox) return console.error('Chatbox not found');
 
-                requestAnimationFrame(() => {
-                    chatbox.scrollTop = chatbox.scrollHeight;
-                });
-
-                // Observe new messages and scroll automatically
-                const observer = new MutationObserver(() => {
-                    console.log(chatbox.scrollHeight);
-                    chatbox.scrollTop = chatbox.scrollHeight;
-                });
-
-                observer.observe(chatbox, {
-                    childList: true,
-                    subtree: true
-                });
-
-                // Stop observing after 2 seconds
-                // setTimeout(() => observer.disconnect(), 2000);
+            requestAnimationFrame(() => {
+                chatbox.scrollTop = chatbox.scrollHeight;
             });
 
-            window.addEventListener('markAsRead', event => {
-                var value = document.querySelectorAll('.status_tick');
-                value.forEach(element, index => {
-                    element.classList.remove('bi-check2');
-                    element.classList.add('bi-check2-all', 'text-primary');
-                })
+            // Observe new messages and scroll automatically
+            const observer = new MutationObserver(() => {
+                console.log(chatbox.scrollHeight);
+                chatbox.scrollTop = chatbox.scrollHeight;
             });
 
-            $(document).on('click', '.return-btn', function() {
-
-                Livewire.dispatch('resetChat');
+            observer.observe(chatbox, {
+                childList: true,
+                subtree: true
             });
-        </script>
-    @endsection
+
+            // Stop observing after 2 seconds
+            // setTimeout(() => observer.disconnect(), 2000);
+        });
+
+        window.addEventListener('markAsRead', event => {
+            var value = document.querySelectorAll('.status_tick');
+            value.forEach(element, index => {
+                element.classList.remove('bi-check2');
+                element.classList.add('bi-check2-all', 'text-primary');
+            })
+        });
+
+        $(document).on('click', '.return-btn', function() {
+            $('#chat-wrapper').removeClass('animate-chat-wrapper');
+            $('#chat-wrapper').addClass('remove-animate-chat-wrapper');
+            // Livewire.dispatch('resetChat');
+        });
+    </script>
     {{-- <script>
         $(document).on('click', '.return', function() {
 

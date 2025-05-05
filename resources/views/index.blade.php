@@ -40,49 +40,51 @@ $watch('darkTheme', value => {
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     <style>
         /* Only add these minimal styles to preserve your design */
+
         .simplebar-wrapper {
             /* display: flex;
-                flex-direction: column-reverse; */
+            flex-direction: column-reverse; */
             scroll-behavior: smooth;
-
         }
 
         .messages {
             width: 100%;
             min-height: min-content;
-
         }
+
+
     </style>
+    @yield('style')
     {{-- <link rel="stylesheet" href="{{ asset('css/chat.css') }}"> --}}
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/pusher-js@8.4.0/dist/web/pusher.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/laravel-echo@1.15.3/dist/echo.iife.js"></script>
-    <script >
+    <script src="https://cdn.jsdelivr.net/npm/pusher-js@8.4.0/dist/web/pusher.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/laravel-echo@1.15.3/dist/echo.iife.js"></script>
+    <script>
         window.axios = axios;
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+        window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-// Initialize Echo with Pusher
-window.Echo = new Echo({
-    broadcaster: 'pusher',
-    key: '65e78f6836204dacd503',
-    cluster: 'eu',
-    forceTLS: true,
-    encrypted: true,
-    authEndpoint: '/broadcasting/auth',
-    auth: {
-        headers: {
-            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content,
-        },
-    },
-    disableStats: true
-});
+        // Initialize Echo with Pusher
+        window.Echo = new Echo({
+            broadcaster: 'pusher',
+            key: '65e78f6836204dacd503',
+            cluster: 'eu',
+            forceTLS: true,
+            encrypted: true,
+            authEndpoint: '/broadcasting/auth',
+            auth: {
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content,
+                },
+            },
+            disableStats: true
+        });
 
-// Debugging
-window.Echo.connector.pusher.connection.bind('connected', () => {
-    console.log('Pusher connected successfully!');
-});
+        // Debugging
+        window.Echo.connector.pusher.connection.bind('connected', () => {
+            console.log('Pusher connected successfully!');
+        });
     </script>
     @livewireStyles()
 
@@ -206,19 +208,22 @@ window.Echo.connector.pusher.connection.bind('connected', () => {
                         </div>
                     </div>
                     <!-- Start chats content -->
-                    <div class="tab-pane active show overflow-hidden" id="pills-chat" role="tabpanel" aria-labelledby="pills-chat-tab">
+                    <div class="tab-pane active show overflow-hidden" id="pills-chat" role="tabpanel"
+                        aria-labelledby="pills-chat-tab">
                         <div class="d-flex align-items-center mb-4 p-4 pb-0">
                             <div class="flex-grow-1">
                                 <h5 class="mb-0">Chats</h5>
                             </div>
                             <div class="flex-shrink-0">
                                 <div class="d-flex align-items-center gap-2">
-                                    <div data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Add New Chat">
+                                    <div data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                        data-bs-title="Add New Chat">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="chat-all-list p-4 pt-0"style=" overflow-y: auto;  scroll-behavior: smooth;scrollbar-width: none; ">
+                        <div
+                            class="chat-all-list p-4 pt-0"style=" overflow-y: auto;  scroll-behavior: smooth;scrollbar-width: none; ">
 
                             @livewire('chat.chatlist')
 
@@ -624,8 +629,10 @@ window.Echo.connector.pusher.connection.bind('connected', () => {
                 $('.chat_box_container').show();
             }
         });
-        $(document).on('click', '.return', function() {
 
+        $(document).on('click', '.return', function() {
+            $('#chat-wrapper').removeClass('animate-chat-wrapper');
+            $('#chat-wrapper').addClass('remove-animate-chat-wrapper');
             Livewire.dispatch('resetChat');
             if (window.innerWidth < 768) {
                 $('.chat_list_container').show();
@@ -641,8 +648,8 @@ window.Echo.connector.pusher.connection.bind('connected', () => {
             $('#profile-form').addClass('d-none');
         });
         // automatic logout
-             // Auto logout after 30 minutes of inactivity (1800000 ms)
-             const inactivityTime = 10 * 60 * 1000;
+        // Auto logout after 30 minutes of inactivity (1800000 ms)
+        const inactivityTime = 10 * 60 * 1000;
         let logoutTimer;
 
         function resetTimer() {
@@ -667,7 +674,7 @@ window.Echo.connector.pusher.connection.bind('connected', () => {
     </script>
 
 
-
+    <script src="{{asset('frontend/assets/js/livewire.js')}}"></script>
     @livewireScripts()
 </body>
 
