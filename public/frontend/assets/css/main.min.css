@@ -14434,7 +14434,7 @@ a {
 
 
 
-
+/* Chat Slide In */
 @keyframes fadeInSlide {
     from {
         opacity: 0;
@@ -14445,6 +14445,18 @@ a {
         transform: translateX(0%);
     }
 }
+@-webkit-keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        -webkit-transform: translateX(10%);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateX(0%);
+    }
+}
+
+/* Chat Slide Out */
 @keyframes fadeOutSlide {
     from {
         opacity: 1;
@@ -14452,20 +14464,33 @@ a {
     }
     to {
         opacity: 0;
-
         transform: translateX(40%);
+    }
+}
+@-webkit-keyframes fadeOutSlide {
+    from {
+        opacity: 1;
+        -webkit-transform: translateX(0%);
+    }
+    to {
+        opacity: 0;
+        -webkit-transform: translateX(40%);
     }
 }
 
 .animate-chat-wrapper {
-    animation: fadeInSlide 0.1s ;
+    animation: fadeInSlide 0.1s;
+    -webkit-animation: fadeInSlide 0.1s;
 }
+
 .remove-animate-chat-wrapper {
     transition: 0.3s ease;
-   transform: translateX(100%);
-
-
+    -webkit-transition: 0.3s ease;
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
 }
+
+/* li Pop In */
 @keyframes popFromCenter {
     from {
         opacity: 0;
@@ -14478,10 +14503,25 @@ a {
         transform-origin: center;
     }
 }
+@-webkit-keyframes popFromCenter {
+    from {
+        opacity: 0;
+        -webkit-transform: scaleX(0.3);
+        -webkit-transform-origin: center;
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: scaleX(1);
+        -webkit-transform-origin: center;
+    }
+}
 
 .li-pop-animation {
     animation: popFromCenter 0.3s ease-out forwards;
+    -webkit-animation: popFromCenter 0.3s ease-out forwards;
 }
+
+/* li Pop Out */
 @keyframes removePopToCenter {
     from {
         opacity: 1;
@@ -14494,7 +14534,20 @@ a {
         transform-origin: center;
     }
 }
+@-webkit-keyframes removePopToCenter {
+    from {
+        opacity: 1;
+        -webkit-transform: scaleX(1);
+        -webkit-transform-origin: center;
+    }
+    to {
+        opacity: 0;
+        -webkit-transform: scaleX(0.3);
+        -webkit-transform-origin: center;
+    }
+}
 
 .remove-li-pop-animation {
     animation: removePopToCenter 0.4s ease-in forwards;
+    -webkit-animation: removePopToCenter 0.4s ease-in forwards;
 }
