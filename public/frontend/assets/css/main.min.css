@@ -13945,6 +13945,7 @@ input[type=checkbox] {
   }
   .sidebar-navbar-menu .nav {
     align-items: center;
+    gap: 3.5rem !important;
   }
   .sidebar-navbar-menu form {
     display: none;
