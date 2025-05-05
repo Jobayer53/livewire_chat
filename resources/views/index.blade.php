@@ -51,7 +51,7 @@ $watch('darkTheme', value => {
             width: 100%;
             min-height: min-content;
         }
-        
+
 
     </style>
     @yield('style')
@@ -633,6 +633,9 @@ $watch('darkTheme', value => {
         $(document).on('click', '.return', function() {
             $('#chat-wrapper').removeClass('animate-chat-wrapper');
             $('#chat-wrapper').addClass('remove-animate-chat-wrapper');
+            $('.single-li').removeClass('li-pop-animation');
+            $('.single-li').addClass('remove-li-pop-animation');
+
             Livewire.dispatch('resetChat');
             if (window.innerWidth < 768) {
                 $('.chat_list_container').show();

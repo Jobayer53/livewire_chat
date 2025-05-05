@@ -12,7 +12,7 @@
     <div class="chat-message-list">
         <ul class="list-unstyled chat-list chat-all-groups">
             @if ($singleConversation)
-                <li class="active py-3 border-bottom border-dashed"id="contact-1"
+                <li class="active py-3 border-bottom border-dashed li-pop-animation single-li"id="contact-1"
                     data-id="{{ $singleConversation->id }}" data-receiver_id="{{ $receiverInstance->id }}"
                     wire:key="{{ $singleConversation->id }}"
                     wire:click="chatUserSelected( {{ $singleConversation->id }},{{ $receiverInstance->id }})">
@@ -46,7 +46,7 @@
                         $gender = $receiver->gender;
 
                     @endphp
-                    <li class="active py-3 border-bottom border-dashed"id="contact-1"
+                    <li class="active py-3 border-bottom border-dashed "id="contact-1"
                         data-id="{{ $conversation->id }}"
                         data-receiver_id="{{ $receiver->id }}"
                         wire:key="{{ $conversation->id }}"
@@ -116,6 +116,7 @@
             });
         });
     </script> --}}
+
 
 
 
