@@ -14052,7 +14052,7 @@ input[type=checkbox] {
   background-size: cover;
 }
 .chat-wrapper .chat-body {
-  height: calc(100vh - 159px);
+  height: calc(100vh - 190px);
   background: url(../356d1a6969909b4ef6b1.png) center no-repeat;
   background-size: cover;
   position: relative;
