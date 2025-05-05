@@ -51,37 +51,7 @@ $watch('darkTheme', value => {
             width: 100%;
             min-height: min-content;
         }
-        @keyframes fadeInSlide {
-    from {
-        opacity: 0;
-        transform: translateX(10%);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0%);
-    }
-}
-@keyframes fadeOutSlide {
-    from {
-        opacity: 1;
-        transform: translateX(0%);
-    }
-    to {
-        opacity: 0;
-
-        transform: translateX(40%);
-    }
-}
-
-.animate-chat-wrapper {
-    animation: fadeInSlide 0.4s ;
-}
-.remove-animate-chat-wrapper {
-    transition: 0.5s ease;
-   transform: translateX(100%);
-
-
-}
+        
 
     </style>
     @yield('style')
