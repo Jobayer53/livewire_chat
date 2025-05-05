@@ -13580,7 +13580,11 @@ input[type=checkbox] {
 }
 
 .footer {
-  height: 84px;
+
+
+
+    z-index: 100;
+
 }
 
 .theme-customizer-button {
