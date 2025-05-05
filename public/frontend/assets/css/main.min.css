@@ -14457,7 +14457,7 @@ a {
 }
 
 .animate-chat-wrapper {
-    animation: fadeInSlide 0.3s ;
+    animation: fadeInSlide 0.1s ;
 }
 .remove-animate-chat-wrapper {
     transition: 0.3s ease;
