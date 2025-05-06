@@ -4,7 +4,8 @@ use App\Livewire\Actions\Logout;
 use Livewire\Volt\Component;
 use App\Models\Conversation;
 use App\Models\Message_store;
-use App\Events\loadUser;
+use App\Events\LoadUser;
+use Illuminate\Support\Facades\Broadcast;
 use App\Models\User;
 new class extends Component {
     /**
