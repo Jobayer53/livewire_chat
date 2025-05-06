@@ -100,7 +100,8 @@
             </div>
             {{-- chatbody --}}
             <div class="chat-body p-3 position-relative " id="chatScrollContainer">
-                <div class="simplebar-wrapper" style="margin: -16px;overflow:auto !important;">
+                {{-- <div class="simplebar-wrapper" style="margin: -16px;overflow:hidden scroll !important;scrollbar-width: none;"> --}}
+                <div class="simplebar-wrapper" style="margin: -16px;overflow:hidden scroll !important;scrollbar-width: none;">
                     <div class="messages position-relative" id="messagesContainer">
                         @if ($messages)
                             @foreach ($messages as $message)
@@ -146,21 +147,24 @@
 
             </div>
             <!-- Footer -->
-            <div class="bg-body footer p-3 border-top">
-                <div class="d-flex align-items-center gap-3">
-                    <div class="flex-fill">
-                        <form wire:submit.prevent="$dispatch('sendMessage', { data:$wire.body})">
-                            <div class="input-group">
-                                <input class="form-control bg-light font-14" wire:model='body' type="text" required
-                                    autofocus placeholder="Enter Your Message ...">
-                                <button class="input-group-text btn btn-primary" type="submit">
-                                    <i class="bi bi-send-fill font-18"></i>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+
+
+
+        <div class="bg-body footer p-3 border-top">
+            <div class="d-flex align-items-center gap-3">
+                <div class="flex-fill">
+                    <form wire:submit.prevent="$dispatch('sendMessage', { data:$wire.body})">
+                        <div class="input-group">
+                            <input class="form-control bg-light " wire:model='body' type="text" required
+                                 placeholder="Enter Your Message ...">
+                            <button class="input-group-text btn btn-primary" type="submit">
+                                <i class="bi bi-send-fill font-18"></i>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
+        </div>
         </div>
     @endif
     <script>

@@ -12,8 +12,7 @@ $watch('darkTheme', value => {
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Chat </title>
     <link rel="shortcut icon" href="{{ asset('frontend/assets/images/favicon.ico') }}">
@@ -193,7 +192,7 @@ $watch('darkTheme', value => {
             <div class="tab-content" id="myTab" role="tablist">
 
                 <!-- Start chats -->
-                <div class="tab-pane active show overflow-hidden chat-tab" id="pills-chat" role="tabpanel"
+                <div class="tab-pane active show  chat-tab" id="pills-chat" role="tabpanel"
                     aria-labelledby="pills-chat-tab">
                     <div class="toast-container position-fixed top-0 end-0 p-3">
                         <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
@@ -209,7 +208,7 @@ $watch('darkTheme', value => {
                         </div>
                     </div>
                     <!-- Start chats content -->
-                    <div class="tab-pane active show overflow-hidden" id="pills-chat" role="tabpanel"
+                    <div class="tab-pane active show " id="pills-chat" role="tabpanel"
                         aria-labelledby="pills-chat-tab">
                         <div class="d-flex align-items-center mb-4 p-4 pb-0">
                             <div class="flex-grow-1">
@@ -224,7 +223,7 @@ $watch('darkTheme', value => {
                             </div>
                         </div>
                         <div
-                            class="chat-all-list p-4 pt-0"style=" overflow-y: auto;  scroll-behavior: smooth;scrollbar-width: none; ">
+                            class="chat-all-list p-4 pt-0"style=" overflow-x: hidden; overflow-y: auto ; scrollbar-width: thin; scrollbar-behavior: smooth;">
 
                             @livewire('chat.chatlist')
 
@@ -264,7 +263,7 @@ $watch('darkTheme', value => {
                         <div class="user-chat-nav p-4">
                             <div class="d-flex w-100 align-items-center">
                                 <div class="flex-grow-1">
-                                    <h5 class="text-dark mb-0">Profile</h5>
+                                    <h5 class=" mb-0">Profile</h5>
                                 </div>
 
                             </div>
@@ -382,7 +381,7 @@ $watch('darkTheme', value => {
 
             </div>
         </div>
-        <div class="position-relative flex-fill vh-100 overflow-hidden">
+        <div class="position-relative flex-fill ">
             @livewire('chat.chatbox')
             @livewire('chat.send-message')
             <!-- Customiser setting -->
