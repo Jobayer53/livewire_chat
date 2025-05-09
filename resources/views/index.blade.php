@@ -14,7 +14,7 @@ $watch('darkTheme', value => {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Chat </title>
+    <title>DistingDisting - Chat </title>
     <link rel="shortcut icon" href="{{ asset('frontend/assets/images/favicon.ico') }}">
     <link href="{{ asset('frontend/assets/plugin/simplebar/simplebar.min.css') }}" rel="stylesheet">
 
@@ -28,16 +28,6 @@ $watch('darkTheme', value => {
     <link id="bootstrap" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet">
     <!--------------Main CSS----------------->
     <link id="main-css" href="{{ asset('frontend/assets/css/main.min.css') }}" type="text/css" rel="stylesheet">
-
-
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> --}}
-    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> --}}
-    <!-- Fonts -->
-    {{-- <link rel="preconnect" href="https://fonts.bunny.net"> --}}
-    {{-- <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> --}}
-
-    <!-- Scripts -->
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     <style>
         /* Only add these minimal styles to preserve your design */
 
@@ -55,37 +45,11 @@ $watch('darkTheme', value => {
 
     </style>
     @yield('style')
-    {{-- <link rel="stylesheet" href="{{ asset('css/chat.css') }}"> --}}
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pusher-js@8.4.0/dist/web/pusher.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/laravel-echo@1.15.3/dist/echo.iife.js"></script>
-    <script>
-        window.axios = axios;
-        window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-
-        // Initialize Echo with Pusher
-        window.Echo = new Echo({
-            broadcaster: 'pusher',
-            key: '65e78f6836204dacd503',
-            cluster: 'eu',
-            forceTLS: true,
-            encrypted: true,
-            authEndpoint: '/broadcasting/auth',
-            auth: {
-                headers: {
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content,
-                },
-            },
-            disableStats: true
-        });
-
-        // Debugging
-        window.Echo.connector.pusher.connection.bind('connected', () => {
-            console.log('Pusher connected successfully!');
-        });
-    </script>
+    <script src="{{asset('frontend/assets/js/auth.js')}}"></script>
     @livewireStyles()
 
 
@@ -104,11 +68,11 @@ $watch('darkTheme', value => {
             <div class="d-flex flex-lg-column justify-content-center">
                 <div class="d-lg-flex d-none align-items-center justify-content-center navbar-brand mb-lg-2">
                     <a href="#!" class="brand-logo">
-                        {{-- <img src="assets/images/logo-dark.png" alt="" height="30" class="logo-dark"> --}}
-                        {{-- <img src="assets/images/logo-light.png" alt="" height="30" class="logo-light"> --}}
+                        <img src="{{asset('frontend/assets/images/logo text dark.png')}}" alt="" height="50" class="logo-dark">
+                        <img src="{{asset('frontend/assets/images/logo text white.png')}}" alt="" height="50" class="logo-light">
                     </a>
                     <a href="#!" class="small-logo">
-                        {{-- <img src="assets/images/logo.png" alt="" height="46"> --}}
+                        <img src="{{asset('frontend/assets/images/logo.png')}}" alt="" height="46">
                     </a>
                 </div>
 
@@ -581,6 +545,7 @@ $watch('darkTheme', value => {
 
 
     </div>
+    <script src="{{ asset('frontend/assets/js/livewire.js') }}"></script>
     <!-- Bootstrap js -->
     {{-- <script  src="{{ asset('frontend/assets/js/cdn.min.js') }}" defer></script> --}}
     <script src="{{ asset('frontend/assets/plugin/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -596,88 +561,90 @@ $watch('darkTheme', value => {
 
     <!-- Main jS -->
     <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
+
+
     @yield('script')
     <script>
-        document.addEventListener('livewire:init', () => {
-            Livewire.on('newMessage', (event) => {
-                let blink = $('.spinner-grow');
-                if (event[0] == true) {
-                    blink.removeClass('d-none');
-                } else {
-                    blink.addClass('d-none');
-                }
-            });
-        });
-        window.addEventListener('chatSelected', event => {
+        // document.addEventListener('livewire:init', () => {
+        //     Livewire.on('newMessage', (event) => {
+        //         let blink = $('.spinner-grow');
+        //         if (event[0] == true) {
+        //             blink.removeClass('d-none');
+        //         } else {
+        //             blink.addClass('d-none');
+        //         }
+        //     });
+        // });
+        // window.addEventListener('chatSelected', event => {
 
-            const observer = new MutationObserver((mutations) => {
-                const chatboxBody = document.querySelector('.simplebar-wrapper');
-                if (!chatboxBody) return;
-                chatboxBody.scrollTop = chatboxBody.scrollHeight; // Scroll to the
+        //     const observer = new MutationObserver((mutations) => {
+        //         const chatboxBody = document.querySelector('.chat-body');
+        //         if (!chatboxBody) return;
+        //         chatboxBody.scrollTop = chatboxBody.scrollHeight; // Scroll to the
 
 
-            });
-            observer.observe(document.body, {
-                childList: true,
-                subtree: true
-            });
-            setTimeout(() => observer.disconnect(), 2000);
-        });
-        $(window).resize(function() {
-            if (window.innerWidth > 786) {
-                $('.chat_list_container').show();
-                $('.chat_box_container').show();
-            }
-        });
+        //     });
+        //     observer.observe(document.body, {
+        //         childList: true,
+        //         subtree: true
+        //     });
+        //     setTimeout(() => observer.disconnect(), 2000);
+        // });
+        // $(window).resize(function() {
+        //     if (window.innerWidth > 786) {
+        //         $('.chat_list_container').show();
+        //         $('.chat_box_container').show();
+        //     }
+        // });
 
-        $(document).on('click', '.return', function() {
-            $('#chat-wrapper').removeClass('animate-chat-wrapper');
-            $('#chat-wrapper').addClass('remove-animate-chat-wrapper');
-            $('.single-li').removeClass('li-pop-animation');
-            $('.single-li').addClass('remove-li-pop-animation');
+        // $(document).on('click', '.return', function() {
+        //     $('#chat-wrapper').removeClass('animate-chat-wrapper');
+        //     $('#chat-wrapper').addClass('remove-animate-chat-wrapper');
+        //     $('.single-li').removeClass('li-pop-animation');
+        //     $('.single-li').addClass('remove-li-pop-animation');
 
-            Livewire.dispatch('resetChat');
-            if (window.innerWidth < 768) {
-                $('.chat_list_container').show();
-                $('.chat_box_container').hide();
-            }
-        });
-        $(document).on('click', '#editBtn', function() {
-            $('#profile').addClass('d-none');
-            $('#profile-form').removeClass('d-none');
-        });
-        $(document).on('click', '#cancelBtn', function() {
-            $('#profile').removeClass('d-none');
-            $('#profile-form').addClass('d-none');
-        });
-        // automatic logout
-        // Auto logout after 30 minutes of inactivity (1800000 ms)
-        const inactivityTime = 10 * 60 * 1000;
-        let logoutTimer;
+        //     Livewire.dispatch('resetChat');
+        //     if (window.innerWidth < 768) {
+        //         $('.chat_list_container').show();
+        //         $('.chat_box_container').hide();
+        //     }
+        // });
+        // $(document).on('click', '#editBtn', function() {
+        //     $('#profile').addClass('d-none');
+        //     $('#profile-form').removeClass('d-none');
+        // });
+        // $(document).on('click', '#cancelBtn', function() {
+        //     $('#profile').removeClass('d-none');
+        //     $('#profile-form').addClass('d-none');
+        // });
+        // // automatic logout
+        // // Auto logout after 30 minutes of inactivity (1800000 ms)
+        // const inactivityTime = 10 * 60 * 1000;
+        // let logoutTimer;
 
-        function resetTimer() {
-            clearTimeout(logoutTimer);
-            logoutTimer = setTimeout(logoutUser, inactivityTime);
-        }
+        // function resetTimer() {
+        //     clearTimeout(logoutTimer);
+        //     logoutTimer = setTimeout(logoutUser, inactivityTime);
+        // }
 
-        function logoutUser() {
-            // Livewire.dispatch('logoutUser');
-            // window.location.href = '/logout'; // Laravel's default logout route
-            // console.log('User logged out due to inactivity');
-            // $('#logoutBtn').click();
-        }
+        // function logoutUser() {
+        //     // Livewire.dispatch('logoutUser');
+        //     // window.location.href = '/logout'; // Laravel's default logout route
+        //     // console.log('User logged out due to inactivity');
+        //     // $('#logoutBtn').click();
+        // }
 
-        // Reset timer on these events
-        ['mousemove', 'keypress', 'click', 'scroll'].forEach(event => {
-            document.addEventListener(event, resetTimer);
-        });
+        // // Reset timer on these events
+        // ['mousemove', 'keypress', 'click', 'scroll'].forEach(event => {
+        //     document.addEventListener(event, resetTimer);
+        // });
 
-        // Start the timer when page loads
-        resetTimer();
+        // // Start the timer when page loads
+        // resetTimer();
     </script>
 
 
-    <script src="{{asset('frontend/assets/js/livewire.js')}}"></script>
+
     @livewireScripts()
 </body>
 

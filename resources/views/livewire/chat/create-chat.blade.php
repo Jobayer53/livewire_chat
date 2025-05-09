@@ -50,16 +50,16 @@
     </div>
     @section('script')
         <script>
-            $('.users').on('click', function() {
-                let chat = $('.chat-nav');
-                let user = $('.user-nav');
-                let chatTab = $('.chat-tab');
-                let userTab = $('.user-tab');
-                user.removeClass('active').attr('aria-selected', false).attr('tabindex', '-1');
-                chat.attr('aria-selected', true).removeAttr('tabindex').addClass('active');
-                userTab.removeClass('active show');
-                chatTab.addClass('active show');
-            });
+            // $('.users').on('click', function() {
+            //     let chat = $('.chat-nav');
+            //     let user = $('.user-nav');
+            //     let chatTab = $('.chat-tab');
+            //     let userTab = $('.user-tab');
+            //     user.removeClass('active').attr('aria-selected', false).attr('tabindex', '-1');
+            //     chat.attr('aria-selected', true).removeAttr('tabindex').addClass('active');
+            //     userTab.removeClass('active show');
+            //     chatTab.addClass('active show');
+            // });
         </script>
     @endsection
 

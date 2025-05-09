@@ -101,49 +101,57 @@
             {{-- chatbody --}}
             <div class="chat-body p-3 position-relative " id="chatScrollContainer">
                 {{-- <div class="simplebar-wrapper" style="margin: -16px;overflow:hidden scroll !important;scrollbar-width: none;"> --}}
-                <div class="simplebar-wrapper" style="margin: -16px;overflow:hidden scroll !important;scrollbar-width: none;">
-                    <div class="messages position-relative" id="messagesContainer">
-                        @if ($messages)
-                            @foreach ($messages as $message)
-                                @if ($auth->id == $message->sender_id)
-                                    <div class="message-item outgoing-message mt-2 mb-2">
-                                        <div class="d-flex gap-2 align-items-center flex-wrap">
-                                            <div>
-                                                <div class="message-content  me-2">{{ $message->body }}</div>
-                                            </div>
-                                        </div>
-                                        <div class="time text-end font-12 mt-1">
-                                            <span>{{ $message->created_at->format('m: i a') }}</span>
-                                            @php
-                                                if ($message->user->id === $auth->id) {
-                                                    if ($message->read == 0) {
-                                                        echo '<i class="bi bi-check2-all  status_tick"></i>';
-                                                    } else {
-                                                        echo '<i class="bi bi-check2-all text-primary "></i>';
-                                                    }
-                                                }
-                                            @endphp
-                                        </div>
-                                    </div>
-                                @else
-                                    <div class="message-item incoming-message mt-2 mb-2">
-                                        <div class="d-flex gap-2 align-items-center flex-wrap">
-                                            <div>
-                                                <div class="message-content ms-2"> {{ $message->body }}</div>
-                                            </div>
 
-                                        </div>
-                                        <div class="time text-start font-12 mt-1 ms-2">
-                                            <span> {{ $message->created_at->format('m: i a') }} </span>
+                <div class="simplebar-wrapper">
+                    <div class="simplebar-mask">
+                      <div class="simplebar-offset">
+                        <div class="simplebar-content-wrapper" style="overflow: auto; height:90%;">
+                          <div class="simplebar-content">
+                            <div class="messages position-relative" id="messagesContainer">
+                                @if ($messages)
+                                    @foreach ($messages as $message)
+                                        @if ($auth->id == $message->sender_id)
+                                            <div class="message-item outgoing-message mt-2 mb-2">
+                                                <div class="d-flex gap-2 align-items-center flex-wrap">
+                                                    <div>
+                                                        <div class="message-content  me-2">{{ $message->body }}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="time text-end font-12 mt-1">
+                                                    <span>{{ $message->created_at->format('m: i a') }}</span>
+                                                    @php
+                                                        if ($message->user->id === $auth->id) {
+                                                            if ($message->read == 0) {
+                                                                echo '<i class="bi bi-check2-all  status_tick"></i>';
+                                                            } else {
+                                                                echo '<i class="bi bi-check2-all text-primary "></i>';
+                                                            }
+                                                        }
+                                                    @endphp
+                                                </div>
+                                            </div>
+                                        @else
+                                            <div class="message-item incoming-message mt-2 mb-2">
+                                                <div class="d-flex gap-2 align-items-center flex-wrap">
+                                                    <div>
+                                                        <div class="message-content ms-2"> {{ $message->body }}</div>
+                                                    </div>
 
-                                        </div>
-                                    </div>
+                                                </div>
+                                                <div class="time text-start font-12 mt-1 ms-2">
+                                                    <span> {{ $message->created_at->format('m: i a') }} </span>
+
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endforeach
                                 @endif
-                            @endforeach
-                        @endif
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                </div>
-
+                  </div>
 
             </div>
             <!-- Footer -->
@@ -168,49 +176,52 @@
         </div>
     @endif
     <script>
-        window.addEventListener('rowChatToBottom', () => {
-            const chatbox = document.querySelector('.simplebar-wrapper');
-            if (!chatbox) return console.error('Chatbox not found');
+        // window.addEventListener('rowChatToBottom', () => {
+        //     console.log('rowChatToBottom');
 
-            requestAnimationFrame(() => {
-                chatbox.scrollTop = chatbox.scrollHeight;
-            });
 
-            // Observe new messages and scroll automatically
-            const observer = new MutationObserver(() => {
-                console.log(chatbox.scrollHeight);
-                chatbox.scrollTop = chatbox.scrollHeight;
-            });
+        //     // requestAnimationFrame(() => {
+        //     //     chatbox.scrollTop = chatbox.scrollHeight;
+        //     // });
 
-            observer.observe(chatbox, {
-                childList: true,
-                subtree: true
-            });
+        //     // Observe new messages and scroll automatically
+        //     const chatbox = document.querySelector('.simplebar-wrapper');
+        //     const observer = new MutationObserver(() => {
+        //         if (!chatbox) return;
+        //         console.error(chatbox);
+        //         console.log(chatbox.scrollHeight);
+        //         chatbox.scrollTop = chatbox.scrollHeight;
+        //     });
 
-            // Stop observing after 2 seconds
-            // setTimeout(() => observer.disconnect(), 2000);
-        });
+        //     observer.observe(chatbox, {
+        //         childList: true,
+        //         subtree: true
+        //     });
 
-        window.addEventListener('markAsRead', event => {
-            var value = document.querySelectorAll('.status_tick');
-            value.forEach(element, index => {
-                element.classList.remove('bi-check2');
-                element.classList.add('bi-check2-all', 'text-primary');
-            })
-        });
+        //     // Stop observing after 2 seconds
+        //     // setTimeout(() => observer.disconnect(), 2000);
+        // });
 
-        $(document).on('click', '.return-btn', function() {
-            $('#chat-wrapper').removeClass('animate-chat-wrapper');
-            $('#chat-wrapper').addClass('remove-animate-chat-wrapper');
-            $('.single-li').removeClass('li-pop-animation');
-            $('.single-li').addClass('remove-li-pop-animation');
+        // window.addEventListener('markAsRead', event => {
+        //     var value = document.querySelectorAll('.status_tick');
+        //     value.forEach(element, index => {
+        //         element.classList.remove('bi-check2');
+        //         element.classList.add('bi-check2-all', 'text-primary');
+        //     })
+        // });
 
-            Livewire.dispatch('resetChat');
-            if (window.innerWidth < 768) {
-                $('.chat_list_container').show();
-                $('.chat_box_container').hide();
-            }
-        });
+        // $(document).on('click', '.return-btn', function() {
+        //     $('#chat-wrapper').removeClass('animate-chat-wrapper');
+        //     $('#chat-wrapper').addClass('remove-animate-chat-wrapper');
+        //     $('.single-li').removeClass('li-pop-animation');
+        //     $('.single-li').addClass('remove-li-pop-animation');
+
+        //     Livewire.dispatch('resetChat');
+        //     if (window.innerWidth < 768) {
+        //         $('.chat_list_container').show();
+        //         $('.chat_box_container').hide();
+        //     }
+        // });
     </script>
     {{-- <script>
         $(document).on('click', '.return', function() {

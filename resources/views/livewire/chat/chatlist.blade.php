@@ -67,8 +67,9 @@
 
                                     </h6>
                                     <span
-                                        class=" @if ($conversation->message->last()?->receiver_id == $auth->id) @if ($conversation->message->last()->read == 0)fw-bold text-secondary @else text-dark @endif @endif"
-                                        style="font-size: 12px">
+                                        class=" "
+                                        style="font-size: 12px; @if ($conversation->message->last()?->receiver_id == $auth->id)
+                                        @if ($conversation->message->last()->read == 0)font-weight-bold;  @endif @endif">
 
 
 

@@ -14,7 +14,7 @@
  */
 :root,
 [data-bs-theme=light] {
-  --bs-blue: #5d9ffc;
+    --bs-blue: #5d9ffc;
     --bs-indigo: #353986;
     --bs-purple: #4fc9c9;
     --bs-pink: #f181db;
@@ -15757,7 +15757,7 @@ input[type=checkbox] {
 .footer {
     z-index: 100;
     position: absolute;
-    bottom: 0;
+    bottom: -16px;
     width: 100%;
 }
 
@@ -15958,8 +15958,8 @@ input[type=checkbox] {
 }
 
 .sidebar {
-    min-width: 200px;
-    max-width: 200px;
+    min-width: 300px;
+    max-width: 300px;
     height: 100vh;
     z-index: 2;
 }
@@ -16131,7 +16131,7 @@ input[type=checkbox] {
 @media (max-width: 991.98px) {
     .sidebar {
         position: fixed;
-        bottom: 14px;
+        bottom: 5px;
         left: 0;
         right: 0;
         height: 66px;
@@ -16190,13 +16190,14 @@ input[type=checkbox] {
         height: 73vh;
     }
 
-    /* .sidebar-chat .contact-lists {
-        height: calc(100vh - 150px);
-    } */
+    .contact-lists {
+        height: 71vh;
+    }
 
     .sidebar-chat .chat-all-calls {
         height: calc(100vh - 190px);
     }
+
 }
 
 @media (max-width: 631.98px) {
@@ -16296,7 +16297,7 @@ input[type=checkbox] {
 }
 
 .chat-wrapper .chat-body {
-    height: calc(100vh - 120px);
+    height: calc(100vh - 91px);
     background: url(../356d1a6969909b4ef6b1.png) center no-repeat;
     background-size: cover;
     position: relative;
@@ -16727,24 +16728,29 @@ a {
 @keyframes fadeInSlide {
     from {
         opacity: 0;
-        transform: translateX(10%);
+        visibility: hidden;
+        right: 100%;
     }
 
     to {
         opacity: 1;
-        transform: translateX(0%);
+        visibility: visible;
+        right: 0;
     }
 }
 
 @-webkit-keyframes fadeInSlide {
     from {
         opacity: 0;
-        -webkit-transform: translateX(10%);
+        right: 100%;
+        visibility: hidden;
     }
 
     to {
         opacity: 1;
-        -webkit-transform: translateX(0%);
+        right: 0;
+        visibility: visible;
+
     }
 }
 
@@ -16752,37 +16758,41 @@ a {
 @keyframes fadeOutSlide {
     from {
         opacity: 1;
-        transform: translateX(0%);
+        right: 0;
+        visibility: visible;
+
     }
 
     to {
-        opacity: 0;
-        transform: translateX(40%);
+        opacity: 0 ;
+        right: 100%;
+        visibility: hidden;
     }
 }
 
 @-webkit-keyframes fadeOutSlide {
     from {
         opacity: 1;
-        -webkit-transform: translateX(0%);
+        right: 0;
+        visibility: visible;
+
     }
 
     to {
         opacity: 0;
-        -webkit-transform: translateX(40%);
+        right: 100%;
+        visibility: hidden;
     }
 }
 
 .animate-chat-wrapper {
-    animation: fadeInSlide 0.1s;
-    -webkit-animation: fadeInSlide 0.1s;
+    animation: fadeInSlide 0.3s;
+    -webkit-animation: fadeInSlide 0.3s;
 }
 
 .remove-animate-chat-wrapper {
-    transition: 0.3s ease;
-    -webkit-transition: 0.3s ease;
-    transform: translateX(100%);
-    -webkit-transform: translateX(100%);
+    animation: fadeOutSlide 0.3s forwards;
+    -webkit-animation: fadeOutSlide 0.3s forwards;
 }
 
 /* li Pop In */
@@ -16857,14 +16867,19 @@ a {
 /* Desktop override */
 @media (max-width: 768px) {
     .chat-wrapper .chat-body {
-        height: 89%
+        height: 79vh;
             /* Original desktop height */
     }
 
     .sidebar-chat {
-        height: 78vh;
+        height: 79vh;
     }
-    .contact-lists{
-        height: 69vh;
+
+
+
+    .footer {
+
+        bottom: 0px !important;
+
     }
 }
