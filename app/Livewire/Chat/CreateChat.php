@@ -52,13 +52,19 @@ class CreateChat extends Component
         }
 
 
-
-           $this->dispatch('loadConversation', conversation: $conversation->id,  receiver: $receiverId)->to('chat.chatbox');
-        $this->dispatch(
+if($conversation->message->first()){
+      $this->dispatch(
             'chatUserSelected',
             conversation_id: $conversation->id,
             receiver_id: $receiverId
         )->to('chat.chatlist');
+}else{
+
+      $this->dispatch('loadConversation', conversation: $conversation->id,  receiver: $receiverId)->to('chat.chatbox');
+         $this->dispatch('updateSendMessage',conversation:$conversation->id, receiver:$receiverId)->to('chat.send-message');
+}
+        //    $this->dispatch('loadConversation', conversation: $conversation->id,  receiver: $receiverId)->to('chat.chatbox');
+
     }
 
 
