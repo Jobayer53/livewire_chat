@@ -106,11 +106,8 @@ class Chatbox extends Component
         $query = Message_store::where('conversation_id', $this->selectedConversation->id);
             $this->messageCount = $query->count();
             $this->messages = $query->get();
-          
+
         if($conversation->message->first()){
-
-
-
             $this->dispatch('chatSelected');
             Message_store::where('conversation_id', $this->selectedConversation->id)
                 ->where('receiver_id', $this->auth->id)

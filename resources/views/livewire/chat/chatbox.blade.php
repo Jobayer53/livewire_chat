@@ -175,59 +175,6 @@
         </div>
         </div>
     @endif
-    <script>
-        // window.addEventListener('rowChatToBottom', () => {
-        //     console.log('rowChatToBottom');
 
-
-        //     // requestAnimationFrame(() => {
-        //     //     chatbox.scrollTop = chatbox.scrollHeight;
-        //     // });
-
-        //     // Observe new messages and scroll automatically
-        //     const chatbox = document.querySelector('.simplebar-wrapper');
-        //     const observer = new MutationObserver(() => {
-        //         if (!chatbox) return;
-        //         console.error(chatbox);
-        //         console.log(chatbox.scrollHeight);
-        //         chatbox.scrollTop = chatbox.scrollHeight;
-        //     });
-
-        //     observer.observe(chatbox, {
-        //         childList: true,
-        //         subtree: true
-        //     });
-
-        //     // Stop observing after 2 seconds
-        //     // setTimeout(() => observer.disconnect(), 2000);
-        // });
-
-        // window.addEventListener('markAsRead', event => {
-        //     var value = document.querySelectorAll('.status_tick');
-        //     value.forEach(element, index => {
-        //         element.classList.remove('bi-check2');
-        //         element.classList.add('bi-check2-all', 'text-primary');
-        //     })
-        // });
-
-        // $(document).on('click', '.return-btn', function() {
-        //     $('#chat-wrapper').removeClass('animate-chat-wrapper');
-        //     $('#chat-wrapper').addClass('remove-animate-chat-wrapper');
-        //     $('.single-li').removeClass('li-pop-animation');
-        //     $('.single-li').addClass('remove-li-pop-animation');
-
-        //     Livewire.dispatch('resetChat');
-        //     if (window.innerWidth < 768) {
-        //         $('.chat_list_container').show();
-        //         $('.chat_box_container').hide();
-        //     }
-        // });
-    </script>
-    {{-- <script>
-        $(document).on('click', '.return', function() {
-
-            Livewire.dispatch('resetChat');
-        });
-    </script> --}}
 
 </div>

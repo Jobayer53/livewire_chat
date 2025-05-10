@@ -45,7 +45,7 @@ $(document).on('click', '.return', function() {
     $('.single-li').removeClass('li-pop-animation');
     $('.single-li').addClass('remove-li-pop-animation');
 
-    // Livewire.dispatch('resetChat');
+    Livewire.dispatch('resetChat');
     if (window.innerWidth < 768) {
         $('.chat_list_container').show();
         $('.chat_box_container').hide();
@@ -115,7 +115,7 @@ $(document).on('click', '.return-btn', function() {
     $('.single-li').removeClass('li-pop-animation');
     $('.single-li').addClass('remove-li-pop-animation');
 
-    // Livewire.dispatch('resetChat');
+    Livewire.dispatch('resetChat');
     if (window.innerWidth < 768) {
         $('.chat_list_container').show();
         $('.chat_box_container').hide();

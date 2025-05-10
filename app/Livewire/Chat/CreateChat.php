@@ -53,7 +53,7 @@ class CreateChat extends Component
 
 
 
-
+           $this->dispatch('loadConversation', conversation: $conversation->id,  receiver: $receiverId)->to('chat.chatbox');
         $this->dispatch(
             'chatUserSelected',
             conversation_id: $conversation->id,
@@ -69,7 +69,7 @@ class CreateChat extends Component
         ->orderByRaw("country = ? DESC", [$this->auth->country])
         ->orderBy('name')
         ->get();
-     
+
     }
 
 
