@@ -116,14 +116,14 @@ class Chatbox extends Component
             $this->messages = $query->get();
 
 
-            // $this->dispatch('chatSelected');
-            // Message_store::where('conversation_id', $this->selectedConversation->id)
-            //     ->where('receiver_id', $this->auth->id)
-            //     ->where('read', 0)
-            //     ->update(['read' => 1]);
-            // $this->dispatch('newMessage', false);
-            // $this->dispatch('refresh')->to('chat.chatlist');
-            // $this->dispatch('broadcastMessageRead')->to('chat.chatbox');
+            $this->dispatch('chatSelected');
+            Message_store::where('conversation_id', $this->selectedConversation->id)
+                ->where('receiver_id', $this->auth->id)
+                ->where('read', 0)
+                ->update(['read' => 1]);
+            $this->dispatch('newMessage', false);
+            $this->dispatch('refresh')->to('chat.chatlist');
+            $this->dispatch('broadcastMessageRead')->to('chat.chatbox');
 
 
     }
