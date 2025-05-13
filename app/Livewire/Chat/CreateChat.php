@@ -21,7 +21,7 @@ class CreateChat extends Component
     {
 
         return [
-           "echo:users,LoadUser" => "refreshUserList"
+            "echo:users,LoadUser" => "refreshUserList"
         ];
     }
     public function refreshUserList($playload)
@@ -33,15 +33,16 @@ class CreateChat extends Component
 
     public function checkconversation($receiverId)
     {
-        $conversation = Conversation::where(function($query) use ($receiverId) {
+
+        $conversation = Conversation::where(function ($query) use ($receiverId) {
             $query->where('receiver_id', $this->auth->id)
-            ->where('sender_id', $receiverId);
+                ->where('sender_id', $receiverId);
         })
-        ->orWhere(function($query) use ($receiverId) {
-            $query->where('receiver_id', $receiverId)
-            ->where('sender_id', $this->auth->id);
-        })
-        ->first();
+            ->orWhere(function ($query) use ($receiverId) {
+                $query->where('receiver_id', $receiverId)
+                    ->where('sender_id', $this->auth->id);
+            })
+            ->first();
 
         if (!$conversation) {
             $conversation = new Conversation();
@@ -52,30 +53,20 @@ class CreateChat extends Component
         }
 
 
-if($conversation->message->first()){
-      $this->dispatch(
-            'chatUserSelected',
-            conversation_id: $conversation->id,
-            receiver_id: $receiverId
-        )->to('chat.chatlist');
-}else{
 
-      $this->dispatch('loadConversation', conversation: $conversation->id,  receiver: $receiverId)->to('chat.chatbox');
-         $this->dispatch('updateSendMessage',conversation:$conversation->id, receiver:$receiverId)->to('chat.send-message');
-}
-        //    $this->dispatch('loadConversation', conversation: $conversation->id,  receiver: $receiverId)->to('chat.chatbox');
 
+        $this->dispatch('chatUserSelected', conversation: $conversation,  receiver: $receiverId)->to('chat.chatlist');
     }
 
 
-    public function mount(){
+    public function mount()
+    {
         $this->auth = auth()->user();
         $this->users = User::where('id', '!=', $this->auth->id)
-        ->where('is_online',true)
-        ->orderByRaw("country = ? DESC", [$this->auth->country])
-        ->orderBy('name')
-        ->get();
-
+            ->where('is_online', true)
+            ->orderByRaw("country = ? DESC", [$this->auth->country])
+            ->orderBy('name')
+            ->get();
     }
 
 

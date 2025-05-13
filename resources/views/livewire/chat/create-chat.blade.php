@@ -9,7 +9,7 @@
         <ul class="list-unstyled chat-list chat-all-groups" id="userList">
             @forelse($users as $user)
                 <li class="active py-2 border-bottom border-dashed users" id="contact-1"
-                    wire:click='checkconversation({{ $user->id }})'>
+                    wire:click='checkconversation({{ $user->id }})' data-data="{{$user}}">
                     <div class="pointer">
                         {{-- <div class="pointer"  > --}}
                         <div class="d-flex align-items-center">

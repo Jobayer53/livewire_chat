@@ -11,7 +11,7 @@
 
     <div class="chat-message-list">
         <ul class="list-unstyled chat-list chat-all-groups">
-            @if ($singleConversation)
+            {{-- @if ($singleConversation)
                 <li class="active py-3 border-bottom border-dashed li-pop-animation single-li"id="contact-1"
                     data-id="{{ $singleConversation->id }}" data-receiver_id="{{ $receiverInstance->id }}"
                     wire:key="{{ $singleConversation->id }}"
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </li>
-            @endif
+            @endif --}}
             @if ($conversations->count() > 0)
                 @foreach ($conversations as $conversation)
                     @php
@@ -46,8 +46,8 @@
                         $gender = $receiver->gender;
 
                     @endphp
-                    <li class="active py-3 border-bottom border-dashed "id="contact-1"
-                        data-id="{{ $conversation->id }}"
+                    <li class="active py-3 border-bottom border-dashed users"id="contact-1"
+                        data-data="{{ $receiver}}"
                         data-receiver_id="{{ $receiver->id }}"
                         wire:key="{{ $conversation->id }}"
                         wire:click="chatUserSelected( {{ $conversation->id }},{{ $receiver->id }})">
@@ -96,7 +96,7 @@
 
 
             @endif
-            @if ($scroll == false && $singleConversation == null)
+            @if ($scroll == false )
                 <div class="no_conversation text-center mt-5" style="font-size: 12px">
 
                     <p><a class="text-primary" style="cursor:pointer;"
@@ -108,15 +108,6 @@
     </div>
 
 
-    {{-- <script>
-        window.addEventListener('mainChat', event => {
-            console.log('Processing userSelected event:', event.detail);
-            Livewire.dispatch('mainConvo', {
-                conversation: event.detail.conversation,
-                receiver_id: event.detail.receiver_id
-            });
-        });
-    </script> --}}
 
 
 

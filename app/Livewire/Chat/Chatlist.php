@@ -17,7 +17,7 @@ class Chatlist extends Component
     public $singleConvo, $singleConversation = null, $singleReceiver;
 
 
-    protected $listeners = ['chatUserSelected', 'refresh','resetChat','userSelected','test'];
+    protected $listeners = ['chatUserSelected', 'refresh','resetChat','userSelected'];
 
 
     public function resetChat(){
@@ -32,21 +32,21 @@ class Chatlist extends Component
 
 
 
+        public function chatUserSelected(Conversation $conversation, User $receiver){
 
-    public function chatUserSelected(Conversation $conversation_id, User $receiver_id){
+
+            $this->dispatch('loadConversation', conversation: $conversation->id,  receiver: $receiver->id)->to('chat.chatbox');
+
+            // if(!$conversation->message->first()){
+            //     $this->singleConversation = $conversation;
+            // }
+            $this->receiverInstance = $receiver;
+            $this->selectedConversation = $conversation;
+            $this->dispatch('updateSendMessage',conversation:$conversation->id, receiver:$receiver->id)->to('chat.send-message');
 
 
-        $this->dispatch('loadConversation', conversation: $conversation_id->id,  receiver: $receiver_id->id)->to('chat.chatbox');
-        if(!$conversation_id->message->first()){
-            $this->singleConversation = $conversation_id;
+
         }
-        $this->receiverInstance = $receiver_id;
-        $this->selectedConversation = $conversation_id;
-        $this->dispatch('updateSendMessage',conversation:$conversation_id->id, receiver:$receiver_id->id)->to('chat.send-message');
-
-
-
-    }
 
 
     // public function getChatUserInstance(Conversation $conversation, $request){

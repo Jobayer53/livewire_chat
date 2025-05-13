@@ -20,6 +20,7 @@ class Chatbox extends Component
     public $body;
     public $auth;
 
+
     // public $body;
 
     // public $name;
@@ -36,6 +37,8 @@ class Chatbox extends Component
             'broadcastMessageRead',
             'resetChat',
             'resetBodyData',
+            'nullMessages'
+
         ];
     }
 
@@ -51,6 +54,7 @@ class Chatbox extends Component
     {
         $this->selectedConversation = null;
         $this->receiverInstance = null;
+
     }
     public function broadcastedMessageReceived($event)
     {
@@ -98,30 +102,30 @@ class Chatbox extends Component
         $this->dispatch('rowChatToBottom');
     }
 
+    public function nullMessages(){
+        $this->messages = null;
+    }
     public function loadConversation(Conversation $conversation, User $receiver)
     {
 
         $this->selectedConversation = $conversation;
         $this->receiverInstance = $receiver;
+
         $query = Message_store::where('conversation_id', $this->selectedConversation->id);
             $this->messageCount = $query->count();
             $this->messages = $query->get();
 
-        if($conversation->message->first()){
-            $this->dispatch('chatSelected');
-            Message_store::where('conversation_id', $this->selectedConversation->id)
-                ->where('receiver_id', $this->auth->id)
-                ->where('read', 0)
-                ->update(['read' => 1]);
-            $this->dispatch('newMessage', false);
-            $this->dispatch('refresh')->to('chat.chatlist');
-            $this->dispatch('broadcastMessageRead')->to('chat.chatbox');
-        }
+
+            // $this->dispatch('chatSelected');
+            // Message_store::where('conversation_id', $this->selectedConversation->id)
+            //     ->where('receiver_id', $this->auth->id)
+            //     ->where('read', 0)
+            //     ->update(['read' => 1]);
+            // $this->dispatch('newMessage', false);
+            // $this->dispatch('refresh')->to('chat.chatlist');
+            // $this->dispatch('broadcastMessageRead')->to('chat.chatbox');
 
 
-
-
-        // $this->name = $this->receiverInstance->name;
     }
 
     public function resetBodyData(){
@@ -135,6 +139,7 @@ class Chatbox extends Component
 
     public function render()
     {
-        return view('livewire.chat.chatbox')->layout('layouts.app');
+            return view('livewire.chat.chatbox')->layout('layouts.app');
+
     }
 }

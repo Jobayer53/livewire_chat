@@ -21,10 +21,9 @@ class SendMessage extends Component
         $this->selectedConversation = null;
         $this->receiverInstance = null;
     }
+
     public function updateSendMessage(Conversation $conversation, User $receiver)
     {
-        // dd($conversation, $receiver);
-
         $this->selectedConversation = $conversation;
         $this->receiverInstance = $receiver;
 

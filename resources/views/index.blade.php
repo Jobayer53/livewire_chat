@@ -12,7 +12,8 @@ $watch('darkTheme', value => {
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>DistingDisting - Chat </title>
     <link rel="shortcut icon" href="{{ asset('frontend/assets/images/favicon.ico') }}">
@@ -41,15 +42,13 @@ $watch('darkTheme', value => {
             width: 100%;
             min-height: min-content;
         }
-
-
     </style>
     @yield('style')
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pusher-js@8.4.0/dist/web/pusher.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/laravel-echo@1.15.3/dist/echo.iife.js"></script>
-    <script src="{{asset('frontend/assets/js/auth.js')}}"></script>
+    <script src="{{ asset('frontend/assets/js/auth.js') }}"></script>
     @livewireStyles()
 
 
@@ -68,11 +67,13 @@ $watch('darkTheme', value => {
             <div class="d-flex flex-lg-column justify-content-center">
                 <div class="d-lg-flex d-none align-items-center justify-content-center navbar-brand mb-lg-2">
                     <a href="#!" class="brand-logo">
-                        <img src="{{asset('frontend/assets/images/logo text dark.png')}}" alt="" height="50" class="logo-dark">
-                        <img src="{{asset('frontend/assets/images/logo text white.png')}}" alt="" height="50" class="logo-light">
+                        <img src="{{ asset('frontend/assets/images/logo text dark.png') }}" alt=""
+                            height="50" class="logo-dark">
+                        <img src="{{ asset('frontend/assets/images/logo text white.png') }}" alt=""
+                            height="50" class="logo-light">
                     </a>
                     <a href="#!" class="small-logo">
-                        <img src="{{asset('frontend/assets/images/logo.png')}}" alt="" height="46">
+                        <img src="{{ asset('frontend/assets/images/logo.png') }}" alt="" height="46">
                     </a>
                 </div>
 
@@ -346,7 +347,89 @@ $watch('darkTheme', value => {
             </div>
         </div>
         <div class="position-relative flex-fill ">
-            @livewire('chat.chatbox')
+            <div class="chat-wrapper d-none  " id="chat-wrapper">
+                <nav class="navbar navbar-expand p-sm-3 z-3">
+                    <div class="d-flex align-items-center gap-2">
+                        <button class="navbar-toggler text-primary shadow-none border-0 p-0 fs-2 return-btn"
+                            type="button">
+                            <i class="bi bi-arrow-left-short align-middle"></i>
+                        </button>
+                        <img id=""
+                            src=""
+                            alt="user image" class="img-fluid square-xs rounded-circle chatUserImage" data-bs-toggle="offcanvas"
+                            href="#profileSlider" role="button">
+                        <span id="chatGroupImg"
+                            class="square-title bg-primary-subtle text-primary square-xs rounded-circle text-center lh-37 d-none">#</span>
+                        <div>
+                            <h6 class="mb-0" data-bs-toggle="offcanvas" href="#profileSlider"><a
+                                    href="javascript:void(0);" class="text-body chatUserName"
+                                    id=""> </a>
+                                    <img class="chatUserFlag"
+                                        src=""
+                                        width="20">
+                            </h6>
+                            <p id='' class="text-muted font-12 mb-0 chatUserAge" style="font-size: 12px;">
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="ms-auto">
+                        <ul class="navbar-nav gap-2">
+
+                            <li class="return" style="cursor: pointer;font-size: 25px;">
+                                <div>
+                                    <i class="bi bi-x " style=""></i>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="profileSlider">
+                    <div class="offcanvas-body">
+                        <div class="offcanvas-header p-0 pb-3 justify-content-between">
+                            <h6 class="mb-0">Profile</h6>
+                            <button type="button" class="btn bg-body-tertiary btn-small p-0"
+                                data-bs-dismiss="offcanvas" aria-label="Close">
+                                <i class="bi bi-x"></i>
+                            </button>
+                        </div>
+                        <div class="text-center">
+                            <div class="mx-auto mt-2 rounded-circle square-xxl bg-light">
+                                <img src=""
+                                    alt="" class="img-fluid square-xxl rounded-circle p-1 bg-primary-subtle chatUserImage">
+                            </div>
+                            <h5 class="mt-3 chatUserName" id="profileUserName"> </h5>
+                            <p class="text-muted font-14 mb-0">Online</p>
+
+                        </div>
+                        <div class="mt-3">
+                            <p class="mb-3 text-primary">Personal Information</p>
+                            <h6 class="mb-2 pb-1 fw-medium d-flex align-items-center gap-2">
+                                <span>Name :</span>
+                                <span class="fs-6 text-body fw-medium chatUserName"> </span>
+                            </h6>
+                            <h6 class="mb-2 pb-1 fw-medium d-flex align-items-center gap-2">
+                                <span>Age : </span>
+                                <span class="fs-6 text-body fw-medium chatUserAge"> </span>
+                            </h6>
+                            <h6 class="mb-2 pb-1 fw-medium d-flex align-items-center gap-2">
+                                <span>Gender :</span>
+                                <span class="fs-6 text-body fw-medium chatUserGender"> </span>
+                            </h6>
+                            <h6 class="mb-2 pb-1 fw-medium d-flex align-items-center gap-2">
+                                <span>Country :</span>
+
+                                <span class="fs-6 text-body fw-medium">
+                                    <img class="chatUserFlag" src=""
+                                        width="20">
+                                </span>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                @livewire('chat.chatbox')
+            </div>
             @livewire('chat.send-message')
             <!-- Customiser setting -->
             <!-- Customiser Settings -->

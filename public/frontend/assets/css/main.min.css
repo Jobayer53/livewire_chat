@@ -16791,8 +16791,10 @@ a {
 }
 
 .remove-animate-chat-wrapper {
+
     animation: fadeOutSlide 0.3s forwards;
     -webkit-animation: fadeOutSlide 0.3s forwards;
+   
 }
 
 /* li Pop In */

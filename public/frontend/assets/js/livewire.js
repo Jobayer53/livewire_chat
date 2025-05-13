@@ -39,9 +39,40 @@ $(window).resize(function() {
     }
 });
 
+$(document).on('click', '.users', function() {
+    let user = $(this).data('data');
+    console.log(user.gender);
+    let female =`https://api.dicebear.com/9.x/lorelei/svg?seed=Eden&beard[]&earrings[]&eyebrows=variant07&eyes=variant09,variant21&glasses[]&hair=variant41,variant31&head=variant04&mouth=happy01&nose=variant04&backgroundColor=ffdfbf`;
+    let male =`https://api.dicebear.com/9.x/lorelei/svg?seed=Jack&beard[]&earrings[]&eyebrows[]&eyes=variant15&glasses[]&hair=variant43&head=variant04&mouth=happy14&nose=variant03&backgroundColor=b6e3f4`;
+    let image = $('.chatUserImage');
+    let name = $('.chatUserName');
+    let flag = `https://flagsapi.com/${user.country}/flat/32.png`;
+    let userflag = $('.chatUserFlag');
+    let age = $('.chatUserAge');
+    let gender = $('.chatUserGender');
+     if(user.gender == 'Male'){
+        image.attr('src', male);
+    }else{
+        image.attr('src', female);
+    }
+    name.text(user.name);
+    userflag.attr('src', flag);
+    age.text(user.age +' Yrs');
+    gender.text(user.gender);
+
+    if( $('#chat-wrapper').hasClass('d-none') ){
+        $('#chat-wrapper').removeClass('d-none');
+    }else{
+            $('#chat-wrapper').removeClass('remove-animate-chat-wrapper');
+    }
+    $('.chat-wrapper').addClass('animate-chat-wrapper');
+});
+
 $(document).on('click', '.return', function() {
+
     $('#chat-wrapper').removeClass('animate-chat-wrapper');
     $('#chat-wrapper').addClass('remove-animate-chat-wrapper');
+
     $('.single-li').removeClass('li-pop-animation');
     $('.single-li').addClass('remove-li-pop-animation');
 
@@ -91,6 +122,7 @@ document.addEventListener('livewire:init', () => {
         rowChatToBottom();
     });
 });
+
 
 document.addEventListener('livewire:init', () => {
     Livewire.on('markAsRead', () => {
