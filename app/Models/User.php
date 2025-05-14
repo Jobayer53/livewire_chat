@@ -13,17 +13,34 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
     public function conversations()
     {
-        return Conversation::where(function($query) {
-                $query->where('sender_id', $this->id)
-                      ->orWhere('receiver_id', $this->id);
-            })
+        return Conversation::where(function ($query) {
+            $query->where('sender_id', $this->id)
+                ->orWhere('receiver_id', $this->id);
+        })
             ->with(['message'])
             ->latest();
     }
+    public function unreadConversations()
+    {
+        return Conversation::where(function ($query) {
+            $query->where('sender_id', $this->id)
+                ->orWhere('receiver_id', $this->id);
+        })
+            ->whereHas('message', function ($q) {
+                $q->where('read', 0)
+                    ->where('receiver_id', auth()->id()); // Only unread *to* this user
+            })
+            ->with(['message' => function ($q) {
+                $q->where('read', 0)
+                    ->where('receiver_id', auth()->id()); // Also eager load only unread
+            }])
+            ->latest()
+            ->get();
+    }
     public function getConversations()
-{
-    return $this->conversations()->get();
-}
+    {
+        return $this->conversations()->get();
+    }
     /**
      * The attributes that are mass assignable.
      *

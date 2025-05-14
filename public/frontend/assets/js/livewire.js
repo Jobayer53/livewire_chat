@@ -70,18 +70,8 @@ $(document).on('click', '.users', function() {
     $('.chat-wrapper').addClass('animate-chat-wrapper');
 
     user = null;
-     $('#messagesContainer').html('<div class="loading">Loading messages...</div>');
-// const observer = new MutationObserver((mutations, obs) => {
-//     if ($('#messagesContainer .message-item').length > 0) {
-//         $('#messagesContainer .loading').remove();
-//         obs.disconnect();
-//     }
-// });
+     $('#messagesContainer').html('<div style=" text-align: center;margin-top:10px; margin-left:10px">Loading messages...</div>');
 
-// observer.observe(document.getElementById('messagesContainer'), {
-//     childList: true,
-//     subtree: true
-// });
 
 
 });

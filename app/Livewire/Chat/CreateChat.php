@@ -65,6 +65,9 @@ class CreateChat extends Component
             ->orderByRaw("country = ? DESC", [$this->auth->country])
             ->orderBy('name')
             ->get();
+             if($this->auth->unreadConversations()->count() >0){
+                    $this->dispatch('newMessage', true);
+        };
     }
 
 

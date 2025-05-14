@@ -66,7 +66,7 @@ class Chatbox extends Component
                 $broadcastMessage->read = 1;
                 $broadcastMessage->save();
                 $this->pushMessage($broadcastMessage->id);
-                $this->dispatch('broadcastMessageRead')->to('chat.chatbox');
+                $this->broadcastMessageRead();
             }
         }
         if ($broadcastMessage->read == 0) {
@@ -114,17 +114,25 @@ class Chatbox extends Component
 
         if ($this->messageCount > 0) {
             $this->dispatch('chatSelected');
-          $query
-                ->where('receiver_id', $this->auth->id)
+            if($query->where('receiver_id', $this->auth->id)->where('read', 0)->exists()){
+                $query->where('receiver_id', $this->auth->id)
                 ->where('read', 0)
                 ->update(['read' => 1]);
-            $this->dispatch('newMessage', false);
-            $this->dispatch('refresh')->to('chat.chatlist');
-            $this->broadcastMessageRead();
+                $this->broadcastMessageRead();
+
+            }
+
+        $this->blink();
+
         }
     }
 
+    public function blink(){
+        if($this->auth->unreadConversations()->count() == 0){
+                    $this->dispatch('newMessage', false);
+        };
 
+    }
     public function sendMessage()
     {
 
