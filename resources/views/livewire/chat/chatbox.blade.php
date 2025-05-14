@@ -48,8 +48,7 @@
                                                 </div>
                                             @endif
                                         @endforeach
-                                    @else
-                                    loading....
+
                                     @endif
                                 </div>
                             </div>
@@ -62,10 +61,11 @@
 
 
 
-        <div class="bg-body footer p-3 border-top">
+
+  <div class="bg-body footer p-3 border-top">
             <div class="d-flex align-items-center gap-3">
                 <div class="flex-fill">
-                    <form wire:submit.prevent="$dispatch('sendMessage', { data:$wire.body})">
+                    <form wire:submit.prevent="sendMessage">
                         <div class="input-group">
                             <input class="form-control bg-light " wire:model='body' type="text" required
                                 placeholder="Enter Your Message ...">
@@ -77,8 +77,5 @@
                 </div>
             </div>
         </div>
-
-
-
 
 </div>

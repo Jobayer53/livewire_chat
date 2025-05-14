@@ -430,7 +430,7 @@ $watch('darkTheme', value => {
                 </div>
                 @livewire('chat.chatbox')
             </div>
-            @livewire('chat.send-message')
+            {{-- @livewire('chat.send-message') --}}
             <!-- Customiser setting -->
             <!-- Customiser Settings -->
             <div class="theme-customizer-button">

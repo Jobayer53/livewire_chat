@@ -33,16 +33,15 @@ class CreateChat extends Component
 
     public function checkconversation($receiverId)
     {
-
+        // dd($receiverId);
         $conversation = Conversation::where(function ($query) use ($receiverId) {
             $query->where('receiver_id', $this->auth->id)
                 ->where('sender_id', $receiverId);
-        })
-            ->orWhere(function ($query) use ($receiverId) {
+        })->orWhere(function ($query) use ($receiverId) {
                 $query->where('receiver_id', $receiverId)
                     ->where('sender_id', $this->auth->id);
-            })
-            ->first();
+        })
+        ->first();
 
         if (!$conversation) {
             $conversation = new Conversation();
@@ -54,8 +53,7 @@ class CreateChat extends Component
 
 
 
-
-        $this->dispatch('chatUserSelected', conversation: $conversation,  receiver: $receiverId)->to('chat.chatlist');
+        $this->dispatch('chatUserSelected', conversation: $conversation->id,  receiver: $receiverId)->to('chat.chatlist');
     }
 
 

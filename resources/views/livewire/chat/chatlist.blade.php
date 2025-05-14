@@ -52,6 +52,7 @@
                         wire:key="{{ $conversation->id }}"
                         wire:click="chatUserSelected( {{ $conversation->id }},{{ $receiver->id }})">
                         <div class="pointer">
+                        
                             <div class="d-flex align-items-center">
                                 <div class="chat-user-img online align-self-center me-2 ms-0">
 

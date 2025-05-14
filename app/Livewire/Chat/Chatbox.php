@@ -8,17 +8,18 @@ use App\Models\Conversation;
 use App\Models\Message_store;
 use App\Events\MessageSent;
 use App\Events\MessageRead;
+use GuzzleHttp\Psr7\Message;
 use Illuminate\Support\Facades\Broadcast;
 
 class Chatbox extends Component
 {
     public $selectedConversation;
     public $receiverInstance;
-    public $messageCount ;
+    public $messageCount;
     public $messages;
     public $paginateVar = 10;
     public $body;
-    public $auth;
+    public $auth, $createdMessage;
 
 
     // public $body;
@@ -54,7 +55,7 @@ class Chatbox extends Component
     {
         $this->selectedConversation = null;
         $this->receiverInstance = null;
-
+        $this->messages =null;
     }
     public function broadcastedMessageReceived($event)
     {
@@ -68,11 +69,11 @@ class Chatbox extends Component
                 $this->dispatch('broadcastMessageRead')->to('chat.chatbox');
             }
         }
-       if($broadcastMessage->read == 0){
-         $this->dispatch('newMessage', true);
-       }else{
-        $this->dispatch('newMessage', false);
-       }
+        if ($broadcastMessage->read == 0) {
+            $this->dispatch('newMessage', true);
+        } else {
+            $this->dispatch('newMessage', false);
+        }
     }
     public function broadcastMessageRead()
     {
@@ -93,18 +94,14 @@ class Chatbox extends Component
     // }
 
 
-    public function pushMessage($message_id)
+    public function pushMessage(Message_store $message)
     {
-
-        $createdMessage = Message_store::find($message_id);
-
-        $this->messages->push($createdMessage);
+        // $createdMessage = Message_store::find($message_id);
+        $this->messages->push($message);
         $this->dispatch('rowChatToBottom');
     }
 
-    public function nullMessages(){
-        $this->messages = null;
-    }
+
     public function loadConversation(Conversation $conversation, User $receiver)
     {
 
@@ -112,34 +109,61 @@ class Chatbox extends Component
         $this->receiverInstance = $receiver;
 
         $query = Message_store::where('conversation_id', $this->selectedConversation->id);
-            $this->messageCount = $query->count();
-            $this->messages = $query->get();
+        $this->messageCount = $query->count();
+        $this->messages = $query->get();
 
-
+        if ($this->messageCount > 0) {
             $this->dispatch('chatSelected');
-            Message_store::where('conversation_id', $this->selectedConversation->id)
+          $query
                 ->where('receiver_id', $this->auth->id)
                 ->where('read', 0)
                 ->update(['read' => 1]);
             $this->dispatch('newMessage', false);
             $this->dispatch('refresh')->to('chat.chatlist');
-            $this->dispatch('broadcastMessageRead')->to('chat.chatbox');
-
-
-    }
-
-    public function resetBodyData(){
-        $this->body = null;
+            $this->broadcastMessageRead();
+        }
     }
 
 
-    public function mount(){
+    public function sendMessage()
+    {
+
+        if ($this->body == null) {
+            return null;
+        }
+        $createdMessage = new Message_store();
+        $createdMessage->body = $this->body;
+
+        $createdMessage->conversation_id = $this->selectedConversation->id;
+        $createdMessage->sender_id = $this->auth->id;
+        $createdMessage->receiver_id = $this->receiverInstance->id;
+        $createdMessage->save();
+        $this->pushMessage($createdMessage);
+        $this->selectedConversation->last_time_message = $createdMessage->created_at;
+        $this->selectedConversation->save();
+        $this->createdMessage = $createdMessage;
+
+        $this->dispatch('refresh')->to('chat.chatlist');
+        $this->reset('body');
+        // $this->dispatch('resetBodyData')->to('chat.chatbox');
+        $this->dispatchMessageSent();
+    }
+    public function dispatchMessageSent(){
+        Broadcast(new MessageSent(
+           $this->auth,
+            $this->createdMessage,
+            $this->selectedConversation,
+            $this->receiverInstance
+        ));
+    }
+
+    public function mount()
+    {
         $this->auth = auth()->user();
     }
 
     public function render()
     {
-            return view('livewire.chat.chatbox')->layout('layouts.app');
-
+        return view('livewire.chat.chatbox')->layout('layouts.app');
     }
 }

@@ -1,4 +1,4 @@
-console.log('livewire loaded');
+
 // chatbox animation
 document.addEventListener('livewire:init', () => {
     Livewire.on('newMessage', (event) => {
@@ -40,8 +40,11 @@ $(window).resize(function() {
 });
 
 $(document).on('click', '.users', function() {
+
+    // $('#messagesContainer').text('Loading...');
     let user = $(this).data('data');
-    console.log(user.gender);
+
+    console.log(user);
     let female =`https://api.dicebear.com/9.x/lorelei/svg?seed=Eden&beard[]&earrings[]&eyebrows=variant07&eyes=variant09,variant21&glasses[]&hair=variant41,variant31&head=variant04&mouth=happy01&nose=variant04&backgroundColor=ffdfbf`;
     let male =`https://api.dicebear.com/9.x/lorelei/svg?seed=Jack&beard[]&earrings[]&eyebrows[]&eyes=variant15&glasses[]&hair=variant43&head=variant04&mouth=happy14&nose=variant03&backgroundColor=b6e3f4`;
     let image = $('.chatUserImage');
@@ -59,13 +62,28 @@ $(document).on('click', '.users', function() {
     userflag.attr('src', flag);
     age.text(user.age +' Yrs');
     gender.text(user.gender);
-
     if( $('#chat-wrapper').hasClass('d-none') ){
         $('#chat-wrapper').removeClass('d-none');
     }else{
             $('#chat-wrapper').removeClass('remove-animate-chat-wrapper');
     }
     $('.chat-wrapper').addClass('animate-chat-wrapper');
+
+    user = null;
+     $('#messagesContainer').html('<div class="loading">Loading messages...</div>');
+// const observer = new MutationObserver((mutations, obs) => {
+//     if ($('#messagesContainer .message-item').length > 0) {
+//         $('#messagesContainer .loading').remove();
+//         obs.disconnect();
+//     }
+// });
+
+// observer.observe(document.getElementById('messagesContainer'), {
+//     childList: true,
+//     subtree: true
+// });
+
+
 });
 
 $(document).on('click', '.return', function() {
@@ -167,3 +185,4 @@ $('.users').on('click', function() {
     userTab.removeClass('active show');
     chatTab.addClass('active show');
 });
+console.log('script loaded');

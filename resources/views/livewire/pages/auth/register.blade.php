@@ -32,7 +32,7 @@ new #[Layout('layouts.guest')] class extends Component {
         event(new Registered($user));
         Auth::login($user);
         broadcast(new LoadUser($user))->toOthers();
-        $this->redirect(route('chat'), navigate: true);
+        $this->redirect(route('chat'));
     }
 }; ?>
 

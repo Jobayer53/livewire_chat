@@ -42,7 +42,7 @@ class Chatlist extends Component
             // }
             $this->receiverInstance = $receiver;
             $this->selectedConversation = $conversation;
-            $this->dispatch('updateSendMessage',conversation:$conversation->id, receiver:$receiver->id)->to('chat.send-message');
+         
 
 
 

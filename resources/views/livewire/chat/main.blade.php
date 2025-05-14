@@ -8,7 +8,7 @@
             @livewire('chat.send-message')
         </div>
     </div>
-    <script>
+    {{-- <script>
         window.addEventListener('chatSelected', event => {
             if (window.innerWidth < 768) {
                 $('.chat_list_container').hide();
@@ -41,7 +41,7 @@
                 $('.chat_box_container').hide();
             }
         });
-    </script>
+    </script> --}}
 
     {{-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
