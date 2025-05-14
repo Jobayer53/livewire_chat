@@ -19,7 +19,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="time text-end font-12 mt-1">
+                                                    <div class="time text-end font-12 mt-1 me-2">
                                                         <span>{{ $message->created_at->format('m: i a') }}</span>
                                                         @php
                                                             if ($message->user->id === $auth->id) {
