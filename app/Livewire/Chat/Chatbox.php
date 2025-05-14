@@ -119,7 +119,7 @@ class Chatbox extends Component
                 ->where('read', 0)
                 ->update(['read' => 1]);
                 $this->broadcastMessageRead();
-
+                $this->dispatch('resetChat')->to('chat.chatlist');
             }
 
         $this->blink();

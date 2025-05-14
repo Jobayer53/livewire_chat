@@ -42,7 +42,7 @@ class Chatlist extends Component
             // }
             $this->receiverInstance = $receiver;
             $this->selectedConversation = $conversation;
-         $this->resetChat();
+   
 
 
 
