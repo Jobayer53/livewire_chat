@@ -94,10 +94,10 @@ class Chatbox extends Component
     // }
 
 
-    public function pushMessage(Message_store $message)
+    public function pushMessage($message)
     {
-        // $createdMessage = Message_store::find($message_id);
-        $this->messages->push($message);
+        $createdMessage = Message_store::find($message);
+        $this->messages->push($createdMessage);
         $this->dispatch('rowChatToBottom');
     }
 
@@ -138,7 +138,7 @@ class Chatbox extends Component
         $createdMessage->sender_id = $this->auth->id;
         $createdMessage->receiver_id = $this->receiverInstance->id;
         $createdMessage->save();
-        $this->pushMessage($createdMessage);
+        $this->pushMessage($createdMessage->id);
         $this->selectedConversation->last_time_message = $createdMessage->created_at;
         $this->selectedConversation->save();
         $this->createdMessage = $createdMessage;
