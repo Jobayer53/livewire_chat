@@ -61,13 +61,13 @@
 
 
 
-
+@if($receiverInstance?->is_online == true)
   <div class="bg-body footer p-3 border-top">
             <div class="d-flex align-items-center gap-3">
                 <div class="flex-fill">
                     <form wire:submit.prevent="sendMessage">
                         <div class="input-group">
-                            <input class="form-control bg-light " wire:model='body' type="text" required
+                            <input class="form-control bg-light chatBoxInput" wire:model='body' type="text" required
                                 placeholder="Enter Your Message ...">
                             <button class="input-group-text btn btn-primary" type="submit">
                                 <i class="bi bi-send-fill font-18"></i>
@@ -77,5 +77,21 @@
                 </div>
             </div>
         </div>
+        @else
+         <div class="bg-body footer p-3 border-top">
+            <div class="d-flex align-items-center gap-3">
+                <div class="flex-fill">
 
+                        <div class="input-group">
+                            <input  class="form-control bg-light chatBoxInput " type="text" readonly
+                                placeholder="Cannot Send Message To Offline User">
+                            <button class="input-group-text btn btn-dark disabled" type="button">
+                                <i class="bi bi-send-fill font-18"></i>
+                            </button>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+        @endif
 </div>

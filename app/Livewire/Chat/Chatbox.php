@@ -139,7 +139,8 @@ class Chatbox extends Component
         if ($this->body == null) {
             return null;
         }
-        $createdMessage = new Message_store();
+        if($this->receiverInstance->is_online == true){
+             $createdMessage = new Message_store();
         $createdMessage->body = $this->body;
 
         $createdMessage->conversation_id = $this->selectedConversation->id;
@@ -155,6 +156,10 @@ class Chatbox extends Component
         $this->reset('body');
         // $this->dispatch('resetBodyData')->to('chat.chatbox');
         $this->dispatchMessageSent();
+        }else{
+            return null;
+        }
+
     }
     public function dispatchMessageSent(){
         Broadcast(new MessageSent(
@@ -167,6 +172,7 @@ class Chatbox extends Component
 
     public function mount()
     {
+
         $this->auth = auth()->user();
     }
 

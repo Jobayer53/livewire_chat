@@ -71,7 +71,7 @@ $(document).on('click', '.users', function() {
 
     user = null;
      $('#messagesContainer').html('<div style=" text-align: center;margin-top:10px; margin-left:10px">Loading messages...</div>');
-
+    $('.chatBoxInput').attr('placeholder', 'loading...');
 
 
 });

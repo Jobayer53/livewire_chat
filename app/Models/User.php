@@ -41,6 +41,7 @@ class User extends Authenticatable
     {
         return $this->conversations()->get();
     }
+    
     /**
      * The attributes that are mass assignable.
      *
