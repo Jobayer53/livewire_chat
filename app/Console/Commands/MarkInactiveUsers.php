@@ -27,7 +27,7 @@ class MarkInactiveUsers extends Command
      */
     public function handle()
     {
-         $threshold = now()->subMinutes(30);
+         $threshold = now()->subMinutes(5);
 
     DB::table('sessions')
         ->where('last_activity', '<', $threshold->timestamp)
