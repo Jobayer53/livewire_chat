@@ -46,8 +46,9 @@ class DeleteInactiveUsersWithoutConversations extends Command
                         $conversation->delete();
                     }
                     $user->delete();
-                    $receiver->delete();
-        
+                    if($receiver->is_online == 0)$receiver->delete();
+
+
             }else{
                 $user->delete();
             }
