@@ -42,11 +42,13 @@ class DeleteInactiveUsersWithoutConversations extends Command
                         } else {
                             $receiver = User::find($conversation->receiver_id);
                         }
-                        Message_store::where('conversation_id', $conversation->id)->delete();
-                        $conversation->delete();
+                        if($receiver->is_online == 0){
+                            Message_store::where('conversation_id', $conversation->id)->delete();
+                            $conversation->delete();
+                            $receiver->delete();
+                            $user->delete();
+                        }
                     }
-                    $user->delete();
-                    if($receiver->is_online == 0)$receiver->delete();
 
 
             }else{
