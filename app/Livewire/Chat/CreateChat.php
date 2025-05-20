@@ -28,6 +28,7 @@ class CreateChat extends Component
     {
         $this->mount();
         $this->dispatch('refresh')->to('chat.chatlist');
+        $this->dispatch('resetChat')->to('chat.chatbox');
     }
 
 

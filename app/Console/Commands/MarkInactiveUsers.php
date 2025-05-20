@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\User;
+use App\Events\LoadUser;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
@@ -35,6 +36,7 @@ class MarkInactiveUsers extends Command
                     ->whereRaw('sessions.user_id = users.id')
                     ->where('sessions.last_activity', '>=', $threshold->timestamp);
             })->update(['is_online' => 0]);
+             broadcast(new LoadUser())->toOthers();
         // DB::table('sessions')
         //     ->where('last_activity', '<', $threshold->timestamp)
         //     ->pluck('user_id')

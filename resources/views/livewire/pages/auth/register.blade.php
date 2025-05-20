@@ -31,7 +31,7 @@ new #[Layout('layouts.guest')] class extends Component {
         $user = User::create($validated);
         event(new Registered($user));
         Auth::login($user);
-        broadcast(new LoadUser($user))->toOthers();
+        broadcast(new LoadUser())->toOthers();
         $this->redirect(route('chat'));
     }
 }; ?>

@@ -15,21 +15,21 @@ class LoadUser implements ShouldBroadcast
 {
 
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $user;
+    // public $user;
     /**
      * Create a new event instance.
      */
-    public function __construct(User $user)
+    public function __construct()
     {
-        $this->user = $user;
+
     }
-    public function broadcastWith()
-    {
-        return [
-            'id' => $this->user->id,
-            'name' => $this->user->name,
-        ];
-    }
+    // public function broadcastWith()
+    // {
+    //     return [
+    //         'id' => $this->user->id,
+    //         'name' => $this->user->name,
+    //     ];
+    // }
     // public function broadcastAs()
     // {
     //     return 'LoadUser';  // Explicit event name
@@ -37,7 +37,7 @@ class LoadUser implements ShouldBroadcast
 
     public function broadcastOn()
     {
-        return new Channel('users'); 
+        return new Channel('users');
         // return [
         //      new Channel('newUser'),
         // ];

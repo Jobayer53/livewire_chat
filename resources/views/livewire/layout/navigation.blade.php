@@ -35,7 +35,7 @@ new class extends Component {
             }
         }
 
-        broadcast(new LoadUser($user))->toOthers();
+        broadcast(new LoadUser())->toOthers();
         $logout();
 
         // $user->delete();
