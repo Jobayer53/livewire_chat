@@ -1,7 +1,7 @@
 /*!********************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/main.scss ***!
   \********************************************************************************************************************/
-@import url(https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&amp;display=swap);
+/* @import url(https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&amp;display=swap); */
 /*!************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/main.scss (1) ***!
   \************************************************************************************************************************/
@@ -16794,7 +16794,7 @@ a {
 
     animation: fadeOutSlide 0.3s forwards;
     -webkit-animation: fadeOutSlide 0.3s forwards;
-   
+
 }
 
 /* li Pop In */
