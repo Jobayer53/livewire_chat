@@ -14,10 +14,13 @@ use Illuminate\Support\Facades\Session;
 
 
 
-// Route::view('/', 'welcome');
-Route::get('/',function(){
-    return redirect()->route('register');
-})->name('forceRegister');
+Route::view('/', 'pages.index')->name('index');
+Route::view('/privacy', 'pages.privacy')->name('privacy');
+Route::view('/terms', 'pages.terms')->name('terms');
+Route::view('/faq', 'pages.faq')->name('faq');
+// Route::get('/',function(){
+//     return redirect()->route('register');
+// })->name('forceRegister');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/chat', [ChatController::class, 'chat'])->name('chat');

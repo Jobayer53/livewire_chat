@@ -39,7 +39,7 @@ new class extends Component {
         $logout();
 
         // $user->delete();
-        $this->redirect('/', navigate: true);
+        $this->redirect('/register', navigate: true);
     }
 }; ?>
 
