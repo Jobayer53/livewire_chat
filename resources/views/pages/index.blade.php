@@ -7,7 +7,8 @@
     <title>Disting Disting - Connect Beyond Words</title>
   <link rel="shortcut icon" href="{{ asset('frontend/assets/images/favicon.ico') }}">
     <!-- Bootstrap 5 CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap.min.css')}}">
      <!-- Add these preconnect links -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,9 +69,9 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-12" data-aos="fade-right" data-aos-duration="1000">
                     <div class="hero-content">
-                        <h2>Where Conversations Come <span
+                        <h1>Where Conversations Come <span
                                 style="background: var(--secondary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Alive</span>
-                        </h2>
+                        </h1>
                         <p class="lead">Our anonymous chat platform connects you with strangers globally without email
                             or phone verification. Start meaningful conversations in seconds with complete privacy and
                             freedom.</p>
