@@ -10,12 +10,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Google Fonts - Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"> --}}
+        <link rel="stylesheet" href="{{asset('frontend/assets/css/font.css')}}">
 
     <!-- AOS Animation Library -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/aos.css')}}">
     <!-- Bootstrap Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
         rel="stylesheet">
@@ -4486,7 +4487,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
     <!-- AOS Animation JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script> --}}
+    <script src="{{asset('frontend/assets/js/aos.js')}}"></script>
 
     <script>
         // Initialize AOS
@@ -4695,8 +4697,12 @@
             });
         });
     </script>
-    <script
-        type='text/javascript'>document.addEventListener('DOMContentLoaded', function () { window.setTimeout(document.querySelector('svg').classList.add('animated'), 1000); })</script>
+    <script type='text/javascript'>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            window.setTimeout(document.querySelector('svg').classList.add('animated'), 1000);
+        });
+    </script>
 
 </body>
 
