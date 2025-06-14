@@ -22,8 +22,9 @@
     {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"> --}}
     <link rel="stylesheet" href="{{asset('frontend/assets/css/aos.css')}}">
     <!-- Bootstrap Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
-        rel="stylesheet">
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+        rel="stylesheet"> --}}
+        <link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap-icons.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('frontend/assets/css/style.css')}}">
 </head>
