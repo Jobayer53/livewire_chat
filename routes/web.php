@@ -18,6 +18,10 @@ Route::view('/', 'pages.index')->name('index');
 Route::view('/privacy', 'pages.privacy')->name('privacy');
 Route::view('/terms', 'pages.terms')->name('terms');
 Route::view('/faq', 'pages.faq')->name('faq');
+
+Route::get('/sitemap.xml', function() {
+    return response()->view('sitemap')->header('Content-Type', 'text/xml');
+});
 // Route::get('/',function(){
 //     return redirect()->route('register');
 // })->name('forceRegister');
