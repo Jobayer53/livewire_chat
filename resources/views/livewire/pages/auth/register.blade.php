@@ -286,7 +286,7 @@ new #[Layout('layouts.guest')] class extends Component {
                 </div>
             </div> --}}
             <div class="col-lg-12">
-                <button type="submit" class="btn btn-primary w-100">
+                <button type="submit" class="btn btn-primary w-100 ">
                     <span wire:loading.remove>Register</span>
                     <span wire:loading>Processing...</span>
 
