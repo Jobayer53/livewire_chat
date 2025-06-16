@@ -18,7 +18,7 @@
     <meta name="description"
         content="Anonymous chat platform connecting you with strangers globally without email or phone verification. Start meaningful conversations in seconds with complete privacy and freedom.">
     <meta name="keywords"
-        content="anonymous chat, random chat, stranger chat, free chat online, no registration chat, global chat, private chat">
+        content="anonymous chat, random chat, talk to strangers, global chat app, private messaging, online chat free">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://distingdisting.com">
 
@@ -38,6 +38,7 @@
         content="Anonymous chat platform connecting you with strangers globally without email or phone verification.">
     <meta name="twitter:image" content="https://distingdisting.com/frontend/assets/images/social_img.png">
     <meta name="google-site-verification" content="lz2Iq_iDCW0VDmf-TGRMe9LEm0GvKZ7RSwUcHgi_arA" />
+    <meta name="msvalidate.01" content="FE8CD77B5479871CD18EC99BD47B2BD0" />
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S0K8WRSZP5"></script>
 <script>
