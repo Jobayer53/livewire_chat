@@ -1,9 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frequently Asked Questions</title>
+    <title>FAQ - Disting Disting Chat Support</title>
+    <meta name="description"
+        content="Frequently asked questions about anonymous chatting, privacy, and safety on Disting Disting.">
+    <meta name="keywords" content="chat help, anonymous chat FAQ, chat app support, how to chat online">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://distingdisting.com/faq">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="FAQ - Disting Disting Chat Support">
+    <meta property="og:description" content="Get answers to common questions about using Disting Disting anonymously.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://distingdisting.com/faq">
+    <meta property="og:image" content="https://distingdisting.com/frontend/assets/images/social_img.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="FAQ - Disting Disting Chat">
+    <meta name="twitter:description" content="Find answers to frequently asked questions about Disting Disting.">
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -15,7 +34,7 @@
         .faq-container {
             background: white;
             border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             margin: 2rem auto;
             max-width: 900px;
             overflow: hidden;
@@ -78,7 +97,7 @@
             margin-bottom: 1rem;
             border-radius: 12px !important;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
         }
 
         .accordion-button {
@@ -171,7 +190,40 @@
             font-size: 1.2em;
         }
     </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Disting Disting completely anonymous?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Disting Disting is completely anonymous. No email or phone verification required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the chat service free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Disting Disting is completely free to use with no hidden charges."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I start chatting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Simply enter your age, gender, and country on the registration page and start chatting instantly."
+      }
+    }
+  ]
+}
+</script>
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="faq-container">
@@ -198,39 +250,54 @@
                     <div class="accordion" id="gettingStartedAccordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#gs1">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#gs1">
                                     How do I start chatting?
                                 </button>
                             </h2>
-                            <div id="gs1" class="accordion-collapse collapse show" data-bs-parent="#gettingStartedAccordion">
+                            <div id="gs1" class="accordion-collapse collapse show"
+                                data-bs-parent="#gettingStartedAccordion">
                                 <div class="accordion-body">
-                                    Starting a chat is super simple! Just visit our homepage and click the <span class="highlight-text">"Start Chatting"</span> button. You'll be instantly redirect to the chat interface. No registration required - though you can create an account if you want to customize your experience.
+                                    Starting a chat is super simple! Just visit our homepage and click the <span
+                                        class="highlight-text">"Start Chatting"</span> button. You'll be instantly
+                                    redirect to the chat interface. No registration required - though you can create an
+                                    account if you want to customize your experience.
                                 </div>
                             </div>
                         </div>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#gs2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#gs2">
                                     Do I need to register to use the chat?
                                 </button>
                             </h2>
-                            <div id="gs2" class="accordion-collapse collapse" data-bs-parent="#gettingStartedAccordion">
+                            <div id="gs2" class="accordion-collapse collapse"
+                                data-bs-parent="#gettingStartedAccordion">
                                 <div class="accordion-body">
-                                    <strong>No login required!</strong> However, we have a simple registration process where you provide basic information: <span class="highlight-text">name, age, gender, and country</span>. This helps us connect you with people from your region and ensures a better chat experience. Registration is quick and easy!
+                                    <strong>No login required!</strong> However, we have a simple registration process
+                                    where you provide basic information: <span class="highlight-text">name, age,
+                                        gender, and country</span>. This helps us connect you with people from your
+                                    region and ensures a better chat experience. Registration is quick and easy!
                                 </div>
                             </div>
                         </div>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#gs3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#gs3">
                                     How do I find someone to chat with?
                                 </button>
                             </h2>
-                            <div id="gs3" class="accordion-collapse collapse" data-bs-parent="#gettingStartedAccordion">
+                            <div id="gs3" class="accordion-collapse collapse"
+                                data-bs-parent="#gettingStartedAccordion">
                                 <div class="accordion-body">
-                                    After registration, you'll see a list of users from your country who are currently online. You can <span class="highlight-text">choose anyone from the list to start chatting</span> with them. The system shows users based on your location to help you connect with people nearby.
+                                    After registration, you'll see a list of users from your country who are currently
+                                    online. You can <span class="highlight-text">choose anyone from the list to start
+                                        chatting</span> with them. The system shows users based on your location to help
+                                    you connect with people nearby.
                                 </div>
                             </div>
                         </div>
@@ -245,52 +312,72 @@
                     <div class="accordion" id="privacySafetyAccordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ps1">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#ps1">
                                     Are my conversations saved or recorded?
                                 </button>
                             </h2>
-                            <div id="ps1" class="accordion-collapse collapse" data-bs-parent="#privacySafetyAccordion">
+                            <div id="ps1" class="accordion-collapse collapse"
+                                data-bs-parent="#privacySafetyAccordion">
                                 <div class="accordion-body">
-                                    <strong>No, your conversations are not saved!</strong> This is one of our key privacy features. All chat messages are <span class="highlight-text">automatically deleted when both users logout</span>. We don't store chat histories, and there's no way to recover conversations once they're ended.
+                                    <strong>No, your conversations are not saved!</strong> This is one of our key
+                                    privacy features. All chat messages are <span class="highlight-text">automatically
+                                        deleted when both users logout</span>. We don't store chat histories, and
+                                    there's no way to recover conversations once they're ended.
                                 </div>
                             </div>
                         </div>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ps2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#ps2">
                                     Is my personal information safe?
                                 </button>
                             </h2>
-                            <div id="ps2" class="accordion-collapse collapse" data-bs-parent="#privacySafetyAccordion">
+                            <div id="ps2" class="accordion-collapse collapse"
+                                data-bs-parent="#privacySafetyAccordion">
                                 <div class="accordion-body">
-                                    Yes! We only collect basic registration information: <span class="highlight-text">name, age, gender, and country</span>. This minimal data helps us provide location-based user listings and improve your chat experience. We don't ask for sensitive information like email addresses, phone numbers, or detailed personal data.
+                                    Yes! We only collect basic registration information: <span
+                                        class="highlight-text">name, age, gender, and country</span>. This minimal data
+                                    helps us provide location-based user listings and improve your chat experience. We
+                                    don't ask for sensitive information like email addresses, phone numbers, or detailed
+                                    personal data.
                                 </div>
                             </div>
                         </div>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ps3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#ps3">
                                     How do I report inappropriate behavior?
                                 </button>
                             </h2>
-                            <div id="ps3" class="accordion-collapse collapse" data-bs-parent="#privacySafetyAccordion">
+                            <div id="ps3" class="accordion-collapse collapse"
+                                data-bs-parent="#privacySafetyAccordion">
                                 <div class="accordion-body">
-                                    If someone is being inappropriate, you can immediately <span class="highlight-text">disconnect from the chat</span> and report the user. Look for the "Report" button in the chat interface. We take all reports seriously and have measures in place to prevent abuse of our platform.
+                                    If someone is being inappropriate, you can immediately <span
+                                        class="highlight-text">disconnect from the chat</span> and report the user.
+                                    Look for the "Report" button in the chat interface. We take all reports seriously
+                                    and have measures in place to prevent abuse of our platform.
                                 </div>
                             </div>
                         </div>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ps4">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#ps4">
                                     Can other users see my IP address or location?
                                 </button>
                             </h2>
-                            <div id="ps4" class="accordion-collapse collapse" data-bs-parent="#privacySafetyAccordion">
+                            <div id="ps4" class="accordion-collapse collapse"
+                                data-bs-parent="#privacySafetyAccordion">
                                 <div class="accordion-body">
-                                    <strong>No, absolutely not!</strong> Other users cannot see your IP address, location, or any technical information about your connection. All they can see is what you choose to share in the chat conversation.
+                                    <strong>No, absolutely not!</strong> Other users cannot see your IP address,
+                                    location, or any technical information about your connection. All they can see is
+                                    what you choose to share in the chat conversation.
                                 </div>
                             </div>
                         </div>
@@ -305,52 +392,70 @@
                     <div class="accordion" id="featuresAccordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f1">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#f1">
                                     Can I choose who I chat with?
                                 </button>
                             </h2>
-                            <div id="f1" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                            <div id="f1" class="accordion-collapse collapse"
+                                data-bs-parent="#featuresAccordion">
                                 <div class="accordion-body">
-                                    Our platform connects you with <span class="highlight-text">random users</span> - that's the fun of it! You can't choose specific people to chat with, but if you don't connect with someone, you can easily end the chat and start a new one to meet someone else.
+                                    Our platform connects you with <span class="highlight-text">random users</span> -
+                                    that's the fun of it! You can't choose specific people to chat with, but if you
+                                    don't connect with someone, you can easily end the chat and start a new one to meet
+                                    someone else.
                                 </div>
                             </div>
                         </div>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#f2">
                                     Is there a time limit on conversations?
                                 </button>
                             </h2>
-                            <div id="f2" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                            <div id="f2" class="accordion-collapse collapse"
+                                data-bs-parent="#featuresAccordion">
                                 <div class="accordion-body">
-                                    No time limits! You can chat for as long as both participants want to continue the conversation. The chat continues until one person decides to disconnect or logout.
+                                    No time limits! You can chat for as long as both participants want to continue the
+                                    conversation. The chat continues until one person decides to disconnect or logout.
                                 </div>
                             </div>
                         </div>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#f3">
                                     Can I share images or files?
                                 </button>
                             </h2>
-                            <div id="f3" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                            <div id="f3" class="accordion-collapse collapse"
+                                data-bs-parent="#featuresAccordion">
                                 <div class="accordion-body">
-                                    Currently, our platform supports <span class="highlight-text">text-based conversations only</span>. This helps maintain privacy and keeps the platform safe. You cannot share images, files, or other media through the chat.
+                                    Currently, our platform supports <span class="highlight-text">text-based
+                                        conversations only</span>. This helps maintain privacy and keeps the platform
+                                    safe. You cannot share images, files, or other media through the chat.
                                 </div>
                             </div>
                         </div>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f4">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#f4">
                                     How do I end a conversation?
                                 </button>
                             </h2>
-                            <div id="f4" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                            <div id="f4" class="accordion-collapse collapse"
+                                data-bs-parent="#featuresAccordion">
                                 <div class="accordion-body">
-                                    You can end a conversation at any time by clicking the <span class="highlight-text">"Disconnect"</span> or <span class="highlight-text">"End Chat"</span> button. You can also simply close your browser tab or logout - remember, the conversation will be automatically deleted once both users are gone.
+                                    You can end a conversation at any time by clicking the <span
+                                        class="highlight-text">"Disconnect"</span> or <span
+                                        class="highlight-text">"End Chat"</span> button. You can also simply close your
+                                    browser tab or logout - remember, the conversation will be automatically deleted
+                                    once both users are gone.
                                 </div>
                             </div>
                         </div>
@@ -365,52 +470,69 @@
                     <div class="accordion" id="technicalAccordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#t1">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#t1">
                                     What browsers are supported?
                                 </button>
                             </h2>
-                            <div id="t1" class="accordion-collapse collapse" data-bs-parent="#technicalAccordion">
+                            <div id="t1" class="accordion-collapse collapse"
+                                data-bs-parent="#technicalAccordion">
                                 <div class="accordion-body">
-                                    Our chat platform works on all modern browsers including <span class="highlight-text">Chrome, Firefox, Safari, and Edge</span>. We recommend using the latest version of your browser for the best experience. The platform also works great on mobile browsers!
+                                    Our chat platform works on all modern browsers including <span
+                                        class="highlight-text">Chrome, Firefox, Safari, and Edge</span>. We recommend
+                                    using the latest version of your browser for the best experience. The platform also
+                                    works great on mobile browsers!
                                 </div>
                             </div>
                         </div>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#t2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#t2">
                                     Why is my connection slow or messages delayed?
                                 </button>
                             </h2>
-                            <div id="t2" class="accordion-collapse collapse" data-bs-parent="#technicalAccordion">
+                            <div id="t2" class="accordion-collapse collapse"
+                                data-bs-parent="#technicalAccordion">
                                 <div class="accordion-body">
-                                    Message delays can be caused by your internet connection or high server load. Try refreshing the page or checking your internet connection. If problems persist, the issue might be temporary server congestion - try again in a few minutes.
+                                    Message delays can be caused by your internet connection or high server load. Try
+                                    refreshing the page or checking your internet connection. If problems persist, the
+                                    issue might be temporary server congestion - try again in a few minutes.
                                 </div>
                             </div>
                         </div>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#t3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#t3">
                                     Can I use this on my mobile phone?
                                 </button>
                             </h2>
-                            <div id="t3" class="accordion-collapse collapse" data-bs-parent="#technicalAccordion">
+                            <div id="t3" class="accordion-collapse collapse"
+                                data-bs-parent="#technicalAccordion">
                                 <div class="accordion-body">
-                                    <strong>Yes!</strong> Our chat platform is fully responsive and works great on mobile phones and tablets. Just open your mobile browser and visit our website - no app download required.
+                                    <strong>Yes!</strong> Our chat platform is fully responsive and works great on
+                                    mobile phones and tablets. Just open your mobile browser and visit our website - no
+                                    app download required.
                                 </div>
                             </div>
                         </div>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#t4">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#t4">
                                     What happens if I lose my internet connection?
                                 </button>
                             </h2>
-                            <div id="t4" class="accordion-collapse collapse" data-bs-parent="#technicalAccordion">
+                            <div id="t4" class="accordion-collapse collapse"
+                                data-bs-parent="#technicalAccordion">
                                 <div class="accordion-body">
-                                    If you lose your internet connection, you'll be disconnected from the chat. When you reconnect, you'll need to start a new conversation - your previous chat will have been automatically deleted as per our privacy policy.
+                                    If you lose your internet connection, you'll be disconnected from the chat. When you
+                                    reconnect, you'll need to start a new conversation - your previous chat will have
+                                    been automatically deleted as per our privacy policy.
                                 </div>
                             </div>
                         </div>
@@ -425,52 +547,69 @@
                     <div class="accordion" id="supportAccordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#s1">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#s1">
                                     How do I contact support?
                                 </button>
                             </h2>
-                            <div id="s1" class="accordion-collapse collapse" data-bs-parent="#supportAccordion">
+                            <div id="s1" class="accordion-collapse collapse"
+                                data-bs-parent="#supportAccordion">
                                 <div class="accordion-body">
-                                     For privacy-related questions,You can reach our support team by emailing <span class="highlight-text">distingdistingchat@gmail.com</span>. We typically respond within 24-48 hours.</span>.
+                                    For privacy-related questions,You can reach our support team by emailing <span
+                                        class="highlight-text">distingdistingchat@gmail.com</span>. We typically
+                                    respond within 24-48 hours.</span>.
                                 </div>
                             </div>
                         </div>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#s2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#s2">
                                     Is this service free?
                                 </button>
                             </h2>
-                            <div id="s2" class="accordion-collapse collapse" data-bs-parent="#supportAccordion">
+                            <div id="s2" class="accordion-collapse collapse"
+                                data-bs-parent="#supportAccordion">
                                 <div class="accordion-body">
-                                    <strong>Yes, our random chat platform is completely free!</strong> There are no hidden fees, premium subscriptions, or paid features. We believe in keeping online communication accessible to everyone.
+                                    <strong>Yes, our random chat platform is completely free!</strong> There are no
+                                    hidden fees, premium subscriptions, or paid features. We believe in keeping online
+                                    communication accessible to everyone.
                                 </div>
                             </div>
                         </div>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#s3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#s3">
                                     Can I delete my account?
                                 </button>
                             </h2>
-                            <div id="s3" class="accordion-collapse collapse" data-bs-parent="#supportAccordion">
+                            <div id="s3" class="accordion-collapse collapse"
+                                data-bs-parent="#supportAccordion">
                                 <div class="accordion-body">
-                                    Yes, if you created an account, you can delete it at any time from your account settings. Remember, since we don't store your chat history anyway, deleting your account just removes your username and email from our system.
+                                    Yes, if you created an account, you can delete it at any time from your account
+                                    settings. Remember, since we don't store your chat history anyway, deleting your
+                                    account just removes your username and email from our system.
                                 </div>
                             </div>
                         </div>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#s4">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#s4">
                                     My question isn't answered here. What should I do?
                                 </button>
                             </h2>
-                            <div id="s4" class="accordion-collapse collapse" data-bs-parent="#supportAccordion">
+                            <div id="s4" class="accordion-collapse collapse"
+                                data-bs-parent="#supportAccordion">
                                 <div class="accordion-body">
-                                    No problem! Send us an email at <span class="highlight-text">distingdistingchat@gmail.com</span> with your question, and we'll get back to you as soon as possible. We're always happy to help and improve our service based on user feedback.
+                                    No problem! Send us an email at <span
+                                        class="highlight-text">distingdistingchat@gmail.com</span> with your question,
+                                    and we'll get back to you as soon as possible. We're always happy to help and
+                                    improve our service based on user feedback.
                                 </div>
                             </div>
                         </div>
@@ -478,7 +617,7 @@
                 </div>
 
                 <div class="text-center mt-5">
-                    <a href="{{route('index')}}" class="back-btn">
+                    <a href="{{ route('index') }}" class="back-btn">
                         <span>←</span> Back to Home
                     </a>
                 </div>
@@ -509,4 +648,5 @@
         });
     </script>
 </body>
+
 </html>

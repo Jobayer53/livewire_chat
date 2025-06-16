@@ -1,9 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
+    <title>Privacy Policy | Disting Disting</title>
+    <meta name="description"
+        content="Read Disting Disting’s privacy policy to understand how your data is handled while chatting anonymously.">
+    <meta name="keywords" content="privacy policy, anonymous chat data, data protection chat, chat privacy">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://distingdisting.com/privacy">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Privacy Policy | Disting Disting">
+    <meta property="og:description"
+        content="Learn about our commitment to privacy while using Disting Disting’s anonymous chat platform.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://distingdisting.com/privacy">
+
+
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -15,7 +31,7 @@
         .privacy-container {
             background: white;
             border-radius: 12px;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
             margin: 2rem auto;
             max-width: 800px;
         }
@@ -82,6 +98,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="privacy-container">
@@ -97,22 +114,28 @@
 
                 <div class="highlight-box">
                     <h6>🔒 Privacy First Approach</h6>
-                    <p class="mb-0">We believe in minimal data collection and maximum privacy. Your conversations are temporary and automatically deleted when you logout.</p>
+                    <p class="mb-0">We believe in minimal data collection and maximum privacy. Your conversations are
+                        temporary and automatically deleted when you logout.</p>
                 </div>
 
                 <h3 class="section-title">1. Information We Collect</h3>
-                <p>Our random chat platform is designed with privacy in mind. We collect minimal information necessary for the service to function:</p>
+                <p>Our random chat platform is designed with privacy in mind. We collect minimal information necessary
+                    for the service to function:</p>
                 <ul>
-                    <li><strong>Chat Messages:</strong> Messages you send during active chat sessions (temporarily stored in memory only)</li>
+                    <li><strong>Chat Messages:</strong> Messages you send during active chat sessions (temporarily
+                        stored in memory only)</li>
                     <li><strong>Session Data:</strong> Basic session identifiers to maintain your chat connection</li>
-                    <li><strong>Technical Information:</strong> IP address for connection purposes and basic browser information for compatibility</li>
-                    <li><strong>User Registration:</strong> To register, you provide username,age and location (no personal identification required)</li>
+                    <li><strong>Technical Information:</strong> IP address for connection purposes and basic browser
+                        information for compatibility</li>
+                    <li><strong>User Registration:</strong> To register, you provide username,age and location (no
+                        personal identification required)</li>
                 </ul>
 
                 <h3 class="section-title">2. Automatic Data Deletion</h3>
                 <div class="highlight-box">
                     <h6>🗑️ Automatic Cleanup</h6>
-                    <p class="mb-0">All chat data is automatically and permanently deleted when both participants in a conversation logout. No chat history is retained on our servers.</p>
+                    <p class="mb-0">All chat data is automatically and permanently deleted when both participants in a
+                        conversation logout. No chat history is retained on our servers.</p>
                 </div>
                 <p>This means:</p>
                 <ul>
@@ -132,11 +155,15 @@
                 </ul>
 
                 <h3 class="section-title">4. Information Sharing</h3>
-                <p>We do not sell, trade, or transfer your information to third parties. Your data may only be shared in the following limited circumstances:</p>
+                <p>We do not sell, trade, or transfer your information to third parties. Your data may only be shared in
+                    the following limited circumstances:</p>
                 <ul>
-                    <li><strong>Legal Requirements:</strong> If required by law, court order, or government regulation</li>
-                    <li><strong>Safety Concerns:</strong> To prevent harm or illegal activities when legally obligated</li>
-                    <li><strong>Service Providers:</strong> With trusted technical service providers under strict confidentiality agreements</li>
+                    <li><strong>Legal Requirements:</strong> If required by law, court order, or government regulation
+                    </li>
+                    <li><strong>Safety Concerns:</strong> To prevent harm or illegal activities when legally obligated
+                    </li>
+                    <li><strong>Service Providers:</strong> With trusted technical service providers under strict
+                        confidentiality agreements</li>
                 </ul>
 
                 <h3 class="section-title">5. Cookies and Tracking</h3>
@@ -144,7 +171,8 @@
                 <ul>
                     <li><strong>Essential Cookies:</strong> Required for basic site functionality and chat sessions</li>
                     <li><strong>Session Cookies:</strong> Temporary cookies that expire when you close your browser</li>
-                    <li><strong>No Advertising Cookies:</strong> We do not use cookies for advertising or cross-site tracking</li>
+                    <li><strong>No Advertising Cookies:</strong> We do not use cookies for advertising or cross-site
+                        tracking</li>
                 </ul>
 
                 <h3 class="section-title">6. Data Security</h3>
@@ -162,14 +190,19 @@
                     <li><strong>Anonymous Usage:</strong> You can use our service without registration</li>
                     <li><strong>Data Deletion:</strong> Your chat data is automatically deleted as described above</li>
                     <li><strong>Account Deletion:</strong> If registered, you can delete your account at any time</li>
-                    <li><strong>Access Limitations:</strong> Due to automatic deletion, we cannot provide copies of past conversations</li>
+                    <li><strong>Access Limitations:</strong> Due to automatic deletion, we cannot provide copies of past
+                        conversations</li>
                 </ul>
 
                 <h3 class="section-title">8. Age Restrictions</h3>
-                <p>Our service is intended for users 18 years of age and older. We do not knowingly collect information from children under 18. If we become aware that we have collected information from a child under 18, we will delete such information immediately.</p>
+                <p>Our service is intended for users 18 years of age and older. We do not knowingly collect information
+                    from children under 18. If we become aware that we have collected information from a child under 18,
+                    we will delete such information immediately.</p>
 
                 <h3 class="section-title">9. International Users</h3>
-                <p>If you are accessing our service from outside the jurisdiction where our servers are located, please be aware that your information may be transferred to, stored, and processed in different countries. By using our service, you consent to such transfers.</p>
+                <p>If you are accessing our service from outside the jurisdiction where our servers are located, please
+                    be aware that your information may be transferred to, stored, and processed in different countries.
+                    By using our service, you consent to such transfers.</p>
 
                 <h3 class="section-title">10. Changes to This Policy</h3>
                 <p>We may update this Privacy Policy from time to time. When we do:</p>
@@ -189,11 +222,12 @@
 
                 <div class="highlight-box mt-4">
                     <h6>📝 Summary</h6>
-                    <p class="mb-0">We collect minimal data, automatically delete all conversations when users logout, don't track you across the web, and prioritize your privacy above all else.</p>
+                    <p class="mb-0">We collect minimal data, automatically delete all conversations when users logout,
+                        don't track you across the web, and prioritize your privacy above all else.</p>
                 </div>
 
                 <div class="text-center mt-4">
-                    <a href="{{route('index')}}" class="back-btn">← Back to Home</a>
+                    <a href="{{ route('index') }}" class="back-btn">← Back to Home</a>
                 </div>
             </div>
         </div>
@@ -201,4 +235,5 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

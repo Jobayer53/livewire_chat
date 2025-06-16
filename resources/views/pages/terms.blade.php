@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - Disting Disting</title>
+    <!-- SEO Meta Tags -->
+    <title>Terms of Service | Disting Disting</title>
+    <meta name="description"
+        content="Read the terms of service for Disting Disting anonymous chat platform. Understand your rights and responsibilities while using our chat service.">
+    <meta name="keywords" content="terms of service, chat terms, user agreement, distingdisting terms">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://distingdisting.com/terms">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Terms of Service | Disting Disting">
+    <meta property="og:description" content="Read the terms of service for Disting Disting anonymous chat platform.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://distingdisting.com/terms">
+
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -26,7 +41,7 @@
 
         .navbar {
             background: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             padding: 1rem 0;
         }
 
@@ -54,8 +69,8 @@
         }
 
         .privacy-notice {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 8px;
             padding: 1rem 1.5rem;
             margin-top: 2rem;
@@ -68,7 +83,7 @@
             position: relative;
             z-index: 2;
             border-radius: 12px 12px 0 0;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
         }
 
         .content-header {
@@ -185,6 +200,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <!-- <nav class="navbar">
@@ -199,7 +215,9 @@
     <section class="header-section">
         <div class="container">
             <div class="header-content text-center">
-                <h1><a href="{{route('index')}}" style="font-weight: bold; color: white; text-decoration: none;">Disting Disting - </a>Terms of Service</h1>
+                <h1><a href="{{ route('index') }}"
+                        style="font-weight: bold; color: white; text-decoration: none;">Disting Disting - </a>Terms of
+                    Service</h1>
                 <p class="lead"> Legal terms and conditions for using our anonymous chat platform</p>
 
                 <div class="privacy-notice">
@@ -237,13 +255,16 @@
                         <!-- Acceptance -->
                         <h3 class="section-title">1. Acceptance of Terms</h3>
                         <div class="section-content">
-                            By accessing or using Disting Disting ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, you may not access the Service.
+                            By accessing or using Disting Disting ("Service"), you agree to be bound by these Terms of
+                            Service ("Terms"). If you disagree with any part of these terms, you may not access the
+                            Service.
                         </div>
 
                         <!-- Service Description -->
                         <h3 class="section-title">2. Service Description</h3>
                         <div class="section-content">
-                            Disting Disting provides an anonymous chat platform that enables real-time communication without user registration or data retention.
+                            Disting Disting provides an anonymous chat platform that enables real-time communication
+                            without user registration or data retention.
                         </div>
 
                         <div class="highlight-box">
@@ -272,31 +293,36 @@
                         <!-- Privacy -->
                         <h3 class="section-title">4. Privacy and Data</h3>
                         <div class="section-content">
-                            We do not collect, store, or process personal data. Messages are transmitted in real-time and immediately discarded. No cookies, tracking pixels, or analytics tools are employed.
+                            We do not collect, store, or process personal data. Messages are transmitted in real-time
+                            and immediately discarded. No cookies, tracking pixels, or analytics tools are employed.
                         </div>
 
                         <!-- Service Availability -->
                         <h3 class="section-title">5. Service Availability</h3>
                         <div class="section-content">
-                            While we strive for continuous availability, the Service may be temporarily unavailable due to maintenance, technical issues, or other circumstances beyond our control.
+                            While we strive for continuous availability, the Service may be temporarily unavailable due
+                            to maintenance, technical issues, or other circumstances beyond our control.
                         </div>
 
                         <!-- Disclaimers -->
                         <h3 class="section-title">6. Disclaimers</h3>
                         <div class="section-content">
-                            The Service is provided "as is" without warranties of any kind. We disclaim all liability for service interruptions, data loss, or user interactions.
+                            The Service is provided "as is" without warranties of any kind. We disclaim all liability
+                            for service interruptions, data loss, or user interactions.
                         </div>
 
                         <!-- Limitation of Liability -->
                         <h3 class="section-title">7. Limitation of Liability</h3>
                         <div class="section-content">
-                            Our liability is limited to the maximum extent permitted by law. We shall not be liable for any indirect, incidental, or consequential damages.
+                            Our liability is limited to the maximum extent permitted by law. We shall not be liable for
+                            any indirect, incidental, or consequential damages.
                         </div>
 
                         <!-- Modifications -->
                         <h3 class="section-title">8. Modifications</h3>
                         <div class="section-content">
-                            We reserve the right to modify these Terms at any time. Material changes will be communicated through the Service interface.
+                            We reserve the right to modify these Terms at any time. Material changes will be
+                            communicated through the Service interface.
                         </div>
 
                         <!-- Governing Law -->
@@ -318,8 +344,9 @@
                 <div class="col-lg-6">
                     <div class="contact-card">
                         <h4>Questions or Concerns?</h4>
-                        <p class="text-muted">If you have questions about these terms, please contact our support team.</p>
-                        <a href="{{route('index')}}" class="btn-primary-custom">
+                        <p class="text-muted">If you have questions about these terms, please contact our support team.
+                        </p>
+                        <a href="{{ route('index') }}" class="btn-primary-custom">
                             <i class="fas fa-arrow-left me-2"></i>Contact Support Team
                         </a>
                     </div>
@@ -331,10 +358,12 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p class="mb-0">&copy; 2025 <a href="{{route('index')}}" class="text-decoration-none text-white">Disting Disting</a>. All rights reserved.</p>
+            <p class="mb-0">&copy; 2025 <a href="{{ route('index') }}" class="text-decoration-none text-white">Disting
+                    Disting</a>. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

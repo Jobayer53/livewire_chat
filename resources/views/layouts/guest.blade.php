@@ -16,7 +16,28 @@ $watch('darkTheme', value => {
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>DistingDisting - Register</title>
+    <title>Start Chatting - Enter Your Details | Disting Disting</title>
+    <!-- SEO Meta Tags -->
+    <title>Start Chatting - Enter Your Details | Disting Disting</title>
+    <meta name="description"
+        content="Enter your age, gender, and country to start anonymous chatting with strangers worldwide. No email or phone verification required. Join Disting Disting now.">
+    <meta name="keywords" content="start chat, join chat, anonymous chat registration, free chat signup">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://distingdisting.com/register">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Start Chatting - Enter Your Details | Disting Disting">
+    <meta property="og:description"
+        content="Enter your age, gender, and country to start anonymous chatting with strangers worldwide. No verification required.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://distingdisting.com/register">
+    <meta property="og:image" content="https://distingdisting.com/frontend/assets/images/social_img.png">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Start Chatting - Enter Your Details | Disting Disting">
+    <meta name="twitter:description" content="Enter your details to start anonymous chatting with strangers worldwide.">
+    
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('frontend/assets/images/favicon.ico') }}">
     <!--------------Bootstrap Icon----------------->
