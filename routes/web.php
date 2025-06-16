@@ -22,6 +22,7 @@ Route::view('/faq', 'pages.faq')->name('faq');
 Route::get('/sitemap.xml', function() {
     return response()->view('sitemap')->header('Content-Type', 'text/xml');
 });
+Route::post('/store/contact',[ChatController::class, 'store_contact'])->name('store.contact');
 // Route::get('/',function(){
 //     return redirect()->route('register');
 // })->name('forceRegister');

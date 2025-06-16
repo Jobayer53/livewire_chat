@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Disting Disting - Connect Beyond Words</title>
 
     <meta name="author" content="Disting Disting">
@@ -4494,22 +4495,23 @@
                 </div>
                 <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
                     <div class="contact-form">
-                        <form id="contactForm">
+                       <form id="contactForm" name="contactForm" action="{{ route('store.contact') }}" method="POST">
+                            @csrf
                             <div class="mb-3">
                                 <label for="name" class="form-label">Full Name</label>
-                                <input type="text" class="form-control" id="name" required>
+                                <input type="text" class="form-control" id="name" name="name" required>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email Address</label>
-                                <input type="email" class="form-control" id="email" required>
+                                <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                             <div class="mb-3">
                                 <label for="subject" class="form-label">Subject</label>
-                                <input type="text" class="form-control" id="subject" required>
+                                <input type="text" class="form-control" id="subject" name="subject" required>
                             </div>
                             <div class="mb-3">
                                 <label for="message" class="form-label">Message</label>
-                                <textarea class="form-control" id="message" rows="2" required></textarea>
+                                <textarea class="form-control" id="message" name="message" rows="2" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-gradient w-100">
                                 <i class="bi bi-send me-2"></i>Send Message
@@ -4740,6 +4742,7 @@
             const subject = formData.get('subject');
             const message = formData.get('message');
 
+
             // Simple validation
             if (!name || !email || !subject || !message) {
                 alert('Please fill in all fields.');
@@ -4753,12 +4756,38 @@
             submitButton.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Sending...';
             submitButton.disabled = true;
 
-            setTimeout(() => {
-                alert('Thank you for your message! We\'ll get back to you soon.');
-                this.reset();
+            // Send to Laravel backend
+            fetch('/store/contact', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Thank you for your message! We\'ll get back to you soon.');
+                    this.reset();
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Something went wrong. Please try again.');
+            })
+            .finally(() => {
                 submitButton.innerHTML = originalText;
                 submitButton.disabled = false;
-            }, 2000);
+            });
+
+            // setTimeout(() => {
+            //     alert('Thank you for your message! We\'ll get back to you soon.');
+            //     this.reset();
+            //     submitButton.innerHTML = originalText;
+            //     submitButton.disabled = false;
+            // }, 2000);
         });
 
         // Form field focus animations

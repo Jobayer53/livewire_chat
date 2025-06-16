@@ -19,12 +19,18 @@ new #[Layout('layouts.guest')] class extends Component {
      */
     public function register(): void
     {
+           $activeUsers = User::where('is_online', true)->where('name', $this->name)->exists();
+        if($activeUsers) {
+            $this->addError('name', 'Username already exists');
+            return;
+        }
         $validated = $this->validate([
-            'name' => ['required', 'string', 'max:255', 'unique:' . User::class],
+            'name' => ['required', 'string', 'max:15'],
             'age' => ['required', 'integer', 'min:18'],
             'gender' => ['required', 'string'],
             'country' => ['required', 'string'],
         ]);
+
 
         $this->resetValidation();
 
