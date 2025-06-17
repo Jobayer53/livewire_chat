@@ -21,7 +21,7 @@
     <meta name="keywords"
         content="anonymous chat, random chat, talk to strangers, global chat app, private messaging, online chat free">
     <meta name="robots" content="index,follow">
-    <link rel="canonical" href="https://distingdisting.com">
+   <link rel="canonical" href="https://distingdisting.com/" />
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Disting Disting - Connect Beyond Words">
