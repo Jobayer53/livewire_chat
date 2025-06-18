@@ -21,7 +21,7 @@
     <meta name="keywords"
         content="anonymous chat, random chat, talk to strangers, global chat app, private messaging, online chat free">
     <meta name="robots" content="index,follow">
-   <link rel="canonical" href="https://distingdisting.com/" />
+    <link rel="canonical" href="https://distingdisting.com/" />
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Disting Disting - Connect Beyond Words">
@@ -41,13 +41,16 @@
     <meta name="google-site-verification" content="lz2Iq_iDCW0VDmf-TGRMe9LEm0GvKZ7RSwUcHgi_arA" />
     <meta name="msvalidate.01" content="FE8CD77B5479871CD18EC99BD47B2BD0" />
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S0K8WRSZP5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-S0K8WRSZP5');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S0K8WRSZP5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-S0K8WRSZP5');
+    </script>
     <!-- Structured Data -->
     <script type="application/ld+json">
 {
@@ -69,6 +72,31 @@
     "Global Connections",
     "Complete Privacy",
     "Instant Conversations"
+  ]
+}
+</script>
+<!-- ADD this new WebSite schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Disting Disting",
+  "alternateName": "DistingDisting Chat Platform",
+  "url": "https://distingdisting.com",
+  "description": "Anonymous chat platform for global conversations without registration",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://distingdisting.com/search?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  },
+  "sameAs": [
+    "https://distingdisting.com/register",
+    "https://distingdisting.com/faq",
+    "https://distingdisting.com/privacy",
+    "https://distingdisting.com/terms"
   ]
 }
 </script>
@@ -1148,7 +1176,8 @@
                                 <g id="elq2f1r3md72">
                                     <path
                                         d="M133.36,130.65l15.42-.17c.38.29.78.62,1.19,1l-18.24.2C132.24,131.32,132.78,131,133.36,130.65Zm-5.25,4.74,25.44-.28c-.31-.35-.61-.67-.91-1l-23.81.26-.06.08Zm-2.47,3.72,31-.35-.8-1-29.55.33C126.06,138.43,125.85,138.77,125.64,139.11Zm-2.13,3.71,36-.41-.76-1-34.65.39C123.87,142.14,123.69,142.48,123.51,142.82Zm-1.8,3.7,40.43-.45-.71-1-39.27.44C122,145.84,121.86,146.18,121.71,146.52Zm-1.52,3.7,44.51-.49-.69-1-43.43.49Zm-1.28,3.7,48.21-.54c-.21-.32-.42-.65-.65-1l-47.23.52Zm-1.1,3.7,51.59-.57c-.18-.31-.38-.65-.6-1l-50.7.57C118,156.94,117.91,157.28,117.81,157.62Zm-.94,3.69,54.3-.6a9.19,9.19,0,0,0-.36-1l-53.7.6ZM116,165l55.77-.62c0-.33,0-.67-.08-1l-55.47.62C116.17,164.34,116.1,164.67,116,165Zm-.75,3.69,56.33-.62c0-.34.08-.67.11-1l-56.24.63C115.41,168,115.35,168.36,115.28,168.7Zm-.68,3.7,56.22-.63c.09-.33.18-.66.26-1l-56.3.62Zm-.62,3.69,55.56-.62c.13-.32.26-.65.39-1l-55.78.62C114.1,175.42,114,175.75,114,176.09Zm54.19,3.08-.09-.55.24-.45-54.75.61-.15,1Zm-55.29,4.3,55.91-.62-.17-1-55.59.62Zm-.49,3.7,57-.64-.17-1-56.72.63C112.47,186.49,112.43,186.83,112.39,187.17Zm-.47,3.68,58.1-.64-.17-1-57.81.64Zm-.45,3.7,59.17-.66-.17-1-58.88.65C111.54,193.88,111.51,194.21,111.47,194.55Z"
-                                        style="opacity: 0.1; transform-origin: 141.605px 162.515px;" class="animable">
+                                        style="opacity: 0.1; transform-origin: 141.605px 162.515px;"
+                                        class="animable">
                                     </path>
                                 </g>
                                 <path
@@ -4495,19 +4524,23 @@
                 </div>
                 <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
                     <div class="contact-form">
-                       <form id="contactForm" name="contactForm" action="{{ route('store.contact') }}" method="POST">
+                        <form id="contactForm" name="contactForm" action="{{ route('store.contact') }}"
+                            method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="name" class="form-label">Full Name</label>
-                                <input type="text" class="form-control" id="name" name="name" required>
+                                <input type="text" class="form-control" id="name" name="name"
+                                    required>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email Address</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    required>
                             </div>
                             <div class="mb-3">
                                 <label for="subject" class="form-label">Subject</label>
-                                <input type="text" class="form-control" id="subject" name="subject" required>
+                                <input type="text" class="form-control" id="subject" name="subject"
+                                    required>
                             </div>
                             <div class="mb-3">
                                 <label for="message" class="form-label">Message</label>
@@ -4758,29 +4791,30 @@
 
             // Send to Laravel backend
             fetch('/store/contact', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('Thank you for your message! We\'ll get back to you soon.');
-                    this.reset();
-                } else {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                            'content')
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Thank you for your message! We\'ll get back to you soon.');
+                        this.reset();
+                    } else {
+                        alert('Something went wrong. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
                     alert('Something went wrong. Please try again.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Something went wrong. Please try again.');
-            })
-            .finally(() => {
-                submitButton.innerHTML = originalText;
-                submitButton.disabled = false;
-            });
+                })
+                .finally(() => {
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                });
 
             // setTimeout(() => {
             //     alert('Thank you for your message! We\'ll get back to you soon.');
