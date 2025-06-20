@@ -12,47 +12,43 @@ $watch('darkTheme', value => {
 
 <head>
     <meta charset="utf-8">
-
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Start Chatting - Enter Your Details | Disting Disting</title>
-    <!-- SEO Meta Tags -->
-    <meta name="description"content="Enter your age, gender, and country to start anonymous chatting with strangers worldwide. No email or phone verification required. Join Disting Disting now.">
 
-    <meta name="keywords" content="start chat, join chat, anonymous chat registration, free chat signup">
+    <title>Register to Chat Anonymously | Disting Disting</title>
+
+    <meta name="description" content="Quickly enter your age, gender, and country to join Disting Disting—an anonymous chat platform. No email, phone, or registration required. Start chatting instantly.">
+    <meta name="keywords" content="anonymous chat signup, free chat platform, join chat room, start chat without registration, Disting Disting registration">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://distingdisting.com/register">
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Start Chatting - Enter Your Details | Disting Disting">
-    <meta property="og:description"
-        content="Enter your age, gender, and country to start anonymous chatting with strangers worldwide. No verification required.">
+    <meta property="og:title" content="Register to Chat Anonymously | Disting Disting">
+    <meta property="og:description" content="Join Disting Disting by providing your age, gender, and country. No login or verification needed—just start chatting with strangers worldwide.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://distingdisting.com/register">
     <meta property="og:image" content="https://distingdisting.com/frontend/assets/images/social_img.png">
+    <meta property="og:site_name" content="Disting Disting">
 
     <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Start Chatting - Enter Your Details | Disting Disting">
-    <meta name="twitter:description" content="Enter your details to start anonymous chatting with strangers worldwide.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Register to Chat Anonymously | Disting Disting">
+    <meta name="twitter:description" content="Enter your details to join anonymous global chats instantly. No sign-up needed.">
+    <meta name="twitter:image" content="https://distingdisting.com/frontend/assets/images/social_img.png">
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('frontend/assets/images/favicon.ico') }}">
-    <!--------------Bootstrap Icon----------------->
-    <link id="bootstrap-icons" href="{{ asset('frontend/assets/css/bootstrap-icons.min.css') }}" type="text/css"
-        rel="stylesheet">
-    <!--------------Bootstrap CSS----------------->
-    <link id="bootstrap" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet">
-    <!--------------Main CSS----------------->
-    <link id="main-css" href="{{ asset('frontend/assets/css/main.min.css') }}" type="text/css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.min.css') }}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-
 </head>
+
 
 <body class="bg-logout min-vh-100 d-flex align-items-center justify-content-center">
     <div class="container">
@@ -1120,12 +1116,15 @@ $watch('darkTheme', value => {
                             </div>
                         </div>
                         <div class="col-lg-6">
+
                             <div class="card shadow-none border-0 rounded-lg-0 rounded-3 mb-0"
                                 :class="{ 'border-0': darkTheme, 'border-0 shadow-md': !darkTheme }">
                                 <div class="card-body text-center p-4 m-2">
                                     <img src="{{ asset('frontend/assets/images/login.png') }}" alt=""
                                         class="square-xxl">
-                                    <h4 class="mt-5 mb-3">Start Chat Now!</h4>
+                                   <h1 class="mt-5 mb-4" style="font-size: 20px; font-weight: 600; text-align: center">Join Disting Disting & Start Chatting Instantly</h1>
+
+
                                     <div>
                                         {{ $slot }}
 
