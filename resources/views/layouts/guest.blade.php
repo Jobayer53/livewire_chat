@@ -18,9 +18,8 @@ $watch('darkTheme', value => {
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Start Chatting - Enter Your Details | Disting Disting</title>
     <!-- SEO Meta Tags -->
-    <title>Start Chatting - Enter Your Details | Disting Disting</title>
-    <meta name="description"
-        content="Enter your age, gender, and country to start anonymous chatting with strangers worldwide. No email or phone verification required. Join Disting Disting now.">
+    <meta name="description"content="Enter your age, gender, and country to start anonymous chatting with strangers worldwide. No email or phone verification required. Join Disting Disting now.">
+
     <meta name="keywords" content="start chat, join chat, anonymous chat registration, free chat signup">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://distingdisting.com/register">
@@ -37,7 +36,7 @@ $watch('darkTheme', value => {
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Start Chatting - Enter Your Details | Disting Disting">
     <meta name="twitter:description" content="Enter your details to start anonymous chatting with strangers worldwide.">
-    
+
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('frontend/assets/images/favicon.ico') }}">
     <!--------------Bootstrap Icon----------------->
