@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Disting Disting - Connect Beyond Words</title>
+    <title>Anonymous Chat with Strangers | Disting Disting - No Signup, Just Talk</title>
 
     <meta name="author" content="Disting Disting">
     <meta name="language" content="English">
@@ -16,17 +16,15 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="theme-color" content="#4ECDC4">
-    <meta name="description"
-        content="Anonymous chat platform connecting you with strangers globally without email or phone verification. Start meaningful conversations in seconds with complete privacy and freedom.">
-    <meta name="keywords"
-        content="anonymous chat, random chat, talk to strangers, global chat app, private messaging, online chat free">
+    <meta name="description" content="Chat anonymously with strangers around the world — no login, no phone, no email. Disting Disting lets you connect instantly with complete privacy. Just talk.">
+    <meta name="keywords" content="anonymous chat, chat with strangers, talk anonymously, no login chat, random chat, private messaging, online stranger chat, free chat app,omgle chat">
+
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://distingdisting.com/" />
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Disting Disting - Connect Beyond Words">
-    <meta property="og:description"
-        content="Anonymous chat platform connecting you with strangers globally without email or phone verification. Start meaningful conversations in seconds.">
+  <meta property="og:title" content="Anonymous Chat with Strangers | Disting Disting">
+<meta property="og:description" content="Connect with strangers instantly without registration. 100% private and anonymous chat. Just talk.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://distingdisting.com">
     <meta property="og:image" content="https://distingdisting.com/frontend/assets/images/social_img.png">
@@ -34,9 +32,8 @@
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Disting Disting - Connect Beyond Words">
-    <meta name="twitter:description"
-        content="Anonymous chat platform connecting you with strangers globally without email or phone verification.">
+  <meta name="twitter:title" content="Anonymous Chat with Strangers | Disting Disting">
+<meta name="twitter:description" content="Talk to strangers with total privacy — no signup needed. Try Disting Disting now.">
     <meta name="twitter:image" content="https://distingdisting.com/frontend/assets/images/social_img.png">
     <meta name="google-site-verification" content="lz2Iq_iDCW0VDmf-TGRMe9LEm0GvKZ7RSwUcHgi_arA" />
     <meta name="msvalidate.01" content="FE8CD77B5479871CD18EC99BD47B2BD0" />
