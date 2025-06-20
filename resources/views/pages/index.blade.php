@@ -162,8 +162,8 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-12" data-aos="fade-right" data-aos-duration="1000">
                     <div class="hero-content">
-                        <h1>Where Conversations Come <span
-                                style="background: var(--secondary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Alive</span>
+                        <h1>Anonymous Chat That Connects You <span
+                                style="background: var(--secondary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Instantly</span>
                         </h1>
                         <p class="lead">Our anonymous chat platform connects you with strangers globally without
                             email
